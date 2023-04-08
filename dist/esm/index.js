@@ -6,3 +6,10 @@ export var USER_PLACEHOLDER = 'v1627893621/user_qvwhs7webp';
 export var DEBOUNCE_TIMER = 500;
 export var LONG_POLL_INTERVAL = 60000;
 export var SHORT_POLL_INTERVAL = 5000;
+// Global Utils
+export var isAuthorised = function (permittedRoles, userRoles) {
+    if (permittedRoles.includes('all')) {
+        return true;
+    }
+    return permittedRoles === null || permittedRoles === void 0 ? void 0 : permittedRoles.some(function (r) { return userRoles.includes(r); });
+};

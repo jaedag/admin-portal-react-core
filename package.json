@@ -1,12 +1,16 @@
 {
   "name": "admin-portal-core",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Building Blocks for the Admin Portal App",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "umd:main": "dist/umd/index.js",
   "types": "dist/types/index.d.js",
   "scope": "@jaedag",
+  "workspaces": [
+    "packages/auth",
+    "packages/shared/*"
+  ],
   "scripts": {
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
@@ -60,6 +64,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^8.0.1",
     "jest": "^29.5.0",
+    "lerna": "^6.6.1",
     "pinst": "^3.0.0",
     "prettier": "^2.4.0",
     "ts-jest": "^29.1.0",
