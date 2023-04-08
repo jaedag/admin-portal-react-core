@@ -1,4 +1,4 @@
-import { isAuthorised } from '../src/auth/utils'
+import { isAuthorised } from '../src/auth'
 import { Role } from '../src/types/roles'
 
 describe('isAuthorised', () => {

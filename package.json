@@ -6,6 +6,7 @@
   "module": "dist/esm/index.js",
   "umd:main": "dist/umd/index.js",
   "types": "dist/types/index.d.js",
+  "scope": "@jaedag",
   "scripts": {
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
@@ -22,7 +23,7 @@
     "addscope": "node tools/packagejson name @jaedag/admin-portal-core"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "files": [
     "dist"
