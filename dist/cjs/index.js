@@ -1,19 +1,33 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isAuthorised = exports.SHORT_POLL_INTERVAL = exports.LONG_POLL_INTERVAL = exports.DEBOUNCE_TIMER = exports.USER_PLACEHOLDER = exports.DECIMAL_NUM_REGEX_POSITIVE_ONLY = exports.DECIMAL_NUM_REGEX = exports.MOMO_NUM_REGEX = exports.PHONE_NUM_REGEX = void 0;
-exports.PHONE_NUM_REGEX = /^[+][(]{0,1}[1-9]{1,4}[)]{0,1}[-\s/0-9]*$/;
-exports.MOMO_NUM_REGEX = /^[0][\s/0-9]{9}$/;
-exports.DECIMAL_NUM_REGEX = /^-?\d*\.{1}\d*$/;
-exports.DECIMAL_NUM_REGEX_POSITIVE_ONLY = /^\d*\.{1}\d*$/;
-exports.USER_PLACEHOLDER = 'v1627893621/user_qvwhs7webp';
-exports.DEBOUNCE_TIMER = 500;
-exports.LONG_POLL_INTERVAL = 60000;
-exports.SHORT_POLL_INTERVAL = 5000;
-// Global Utils
-var isAuthorised = function (permittedRoles, userRoles) {
-    if (permittedRoles.includes('all')) {
-        return true;
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
     }
-    return permittedRoles === null || permittedRoles === void 0 ? void 0 : permittedRoles.some(function (r) { return userRoles.includes(r); });
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
-exports.isAuthorised = isAuthorised;
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.auth = void 0;
+__exportStar(require("./constants/regex"), exports);
+__exportStar(require("./types/roles"), exports);
+exports.auth = __importStar(require("./utils/auth"));
+__exportStar(require("./constants/polling"), exports);
