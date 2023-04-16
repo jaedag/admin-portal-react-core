@@ -1,5 +1,5 @@
-import { isAuthorised } from '../src/utils/auth'
-import { Role } from '../src/types/roles'
+import { CurrentUser, Role } from '../types/roles'
+import { authorisedLink, isAuthorised } from './auth'
 
 describe('isAuthorised', () => {
   test('should return true if permittedRoles includes "all"', () => {

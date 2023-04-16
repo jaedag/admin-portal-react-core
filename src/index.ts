@@ -1,4 +1,5 @@
 export * from './constants/regex'
 export * from './types/roles'
-export * from './utils/auth'
+export * as auth from './utils/auth'
+export * as permissions from './utils/permissions'
 export * from './constants/polling'
