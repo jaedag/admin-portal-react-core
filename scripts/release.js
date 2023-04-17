@@ -61,7 +61,9 @@ switch (process.argv[2]) {
     break
 }
 
-concurrently(versionBump, concurrentOpts)
+const { result } = concurrently(versionBump, concurrentOpts)
+
+result
   .then(() => concurrently(changelog, concurrentOpts))
   .then(() => concurrently(publish, concurrentOpts))
   .catch((e) => {
