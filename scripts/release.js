@@ -6,7 +6,7 @@ const publish = [
   {
     name: 'publish',
     command: 'npm run rollup && npm publish',
-    prefixColor: 'blue',
+    prefixColor: 'red',
   },
 ]
 
