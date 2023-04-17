@@ -11,9 +11,10 @@
   "scripts": {
     "rollup": "rollup -c",
     "test": "jest",
-    "release:patch": "npm version patch && npm run rollup && npm publish",
-    "release:minor": "npm version minor && npm run rollup && npm publish",
-    "release:major": "npm version major && npm run rollup && npm publish"
+    "release:major": "npm run clean:git && node scripts/release.js major",
+    "release:minor": "npm run clean:git && node scripts/release.js minor",
+    "release:patch": "npm run clean:git && node scripts/release.js patch",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -63,7 +64,6 @@
     "@types/jest": "^29.5.0",
     "@types/react": "^18.0.35",
     "babel-jest": "^29.5.0",
-    "concurrently": "^8.0.1",
     "eslint": "^8.38.0",
     "eslint-config-airbnb": "^19.0.4",
     "generate-changelog": "^1.8.0",
@@ -72,7 +72,6 @@
     "jest-environment-jsdom": "^29.5.0",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
-    "prettier-eslint-cli": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.20.4",
