@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Icon, Text, VStack } from '@chakra-ui/react'
 import { IconType } from 'react-icons'
-import { capitalise } from '../../utils'
+import { capitalise } from '@/utils'
 
 interface MenuButtonProps {
   icon: IconType
