@@ -15,13 +15,13 @@ export default [
     preserveModules: true,
     output: [
       {
-        file: packageJson.main,
+        dir: packageJson.main,
         format: 'cjs',
         sourcemap: true,
         exports: 'auto',
       },
       {
-        file: packageJson.module,
+        dir: packageJson.module,
         format: 'esm',
         sourcemap: true,
         exports: 'auto',
