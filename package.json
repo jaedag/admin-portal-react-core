@@ -11,9 +11,9 @@
   "scripts": {
     "rollup": "rollup -c",
     "test": "jest",
-    "release:major": "npm run clean:git && node scripts/release.js major",
-    "release:minor": "npm run clean:git && node scripts/release.js minor",
-    "release:patch": "npm run clean:git && node scripts/release.js patch",
+    "release:major": "node scripts/release.js major",
+    "release:minor": "node scripts/release.js minor",
+    "release:patch": "node scripts/release.js patch",
     "prepare": "husky install"
   },
   "husky": {
