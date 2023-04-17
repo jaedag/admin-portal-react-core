@@ -10,6 +10,12 @@ const publish = [
   },
 ]
 
+const concurrentOpts = {
+  restartTries: 3,
+  prefix: '{time} {name} |',
+  timestampFormat: 'HH:mm:ss',
+}
+
 switch (process.argv[2]) {
   case 'patch':
     versionBump.push({
