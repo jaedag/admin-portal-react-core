@@ -1,8 +1,7 @@
 import React from 'react'
 import { Button, Icon, Text, VStack } from '@chakra-ui/react'
 import { IconType } from 'react-icons'
-import { capitalise } from '../../utils/helper-functions'
-import './MenuButton.css'
+import { capitalise } from '../../utils'
 
 interface MenuButtonProps {
   icon: IconType
@@ -21,13 +20,13 @@ const MenuButton: React.FC<MenuButtonProps> = ({
 }) => {
   return (
     <Button
-      width={`100%`}
+      width="100%"
       paddingY="40px"
       marginBottom="10px"
       size="lg"
       colorScheme="gray"
       boxShadow="md"
-      justifyContent={`flex-start`}
+      justifyContent="flex-start"
       onClick={onClick}
       overflow="clip"
     >
@@ -49,6 +48,10 @@ const MenuButton: React.FC<MenuButtonProps> = ({
       </VStack>
     </Button>
   )
+}
+
+MenuButton.defaultProps = {
+  subtitle: '',
 }
 
 export default MenuButton

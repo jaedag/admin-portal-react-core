@@ -1,7 +1,7 @@
 const concurrently = require('concurrently')
 
 const versionBump = []
-const release = []
+const changelog = []
 const publish = [
   {
     name: 'publish',
@@ -23,7 +23,7 @@ switch (process.argv[2]) {
       command: `npm version patch && git add package.json package-lock.json`,
       prefixColor: 'blue',
     })
-    release.push({
+    changelog.push({
       name: 'release:patch',
       command:
         "changelog -p && git add CHANGELOG.md && git commit -m 'docs: update CHANGELOG.md and version bump' && npm version patch && git push origin && git push origin --tags",
@@ -36,7 +36,7 @@ switch (process.argv[2]) {
       command: `npm version minor && git add package.json package-lock.json`,
       prefixColor: 'blue',
     })
-    release.push({
+    changelog.push({
       name: 'release:minor',
       command:
         "changelog -m && git add CHANGELOG.md && git commit -m 'docs: update CHANGELOG.md and version bump' && npm version minor && git push origin && git push origin --tags",
@@ -49,7 +49,7 @@ switch (process.argv[2]) {
       command: `npm version major && git add package.json package-lock.json`,
       prefixColor: 'blue',
     })
-    release.push({
+    changelog.push({
       name: 'release:major',
       command:
         "changelog -M && git add CHANGELOG.md && git commit -m 'docs: update CHANGELOG.md and version bump' && npm version major && git push origin && git push origin --tags",
