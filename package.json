@@ -10,10 +10,13 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "rollup": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release:patch": "npm version patch && npm run rollup && npm publish",
+    "release:minor": "npm version minor && npm run rollup && npm publish",
+    "release:major": "npm version major && npm run rollup && npm publish"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/jaedag"
+    "registry": "https://npm.pkg.github.com/jd_addy"
   },
   "repository": {
     "type": "git",
@@ -34,18 +37,27 @@
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-terser": "^0.4.1",
     "@rollup/plugin-typescript": "^11.1.0",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.0",
     "@types/react": "^18.0.35",
     "eslint": "^8.38.0",
+    "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "prettier": "^2.8.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.20.4",
     "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-postcss": "^4.0.2",
     "tslib": "^2.5.0",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "@chakra-ui/react": "^2.5.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "framer-motion": "^10.12.2",
+    "react": "^18.2.0",
+    "react-icons": "^4.8.0"
   }
 }
