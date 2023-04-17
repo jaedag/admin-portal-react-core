@@ -51,13 +51,13 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "tslib": "^2.5.0",
-    "typescript": "^5.0.4",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
     "@chakra-ui/react": "^2.5.5",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "framer-motion": "^10.12.2"
-  },
-  "peerDependencies": {
+    "framer-motion": "^10.12.2",
     "react": "^18.2.0",
     "react-icons": "^4.8.0"
   }
