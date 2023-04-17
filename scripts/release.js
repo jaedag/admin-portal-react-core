@@ -1,4 +1,5 @@
-import concurrently from 'concurrently'
+// eslint-disable-next-line
+const concurrently = require('concurrently')
 
 const versionBump = []
 const changelog = []
