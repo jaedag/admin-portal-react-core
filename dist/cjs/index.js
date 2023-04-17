@@ -1,7 +1,5 @@
 'use strict';
 
-require('./components/MenuButton/MenuButton.css');
-
 function _mergeNamespaces(n, m) {
 	m.forEach(function (e) {
 		e && typeof e !== 'string' && !Array.isArray(e) && Object.keys(e).forEach(function (k) {
@@ -11319,6 +11317,36 @@ const capitalise = (str) => {
             return (str === null || str === void 0 ? void 0 : str.charAt(0).toUpperCase()) + (str === null || str === void 0 ? void 0 : str.slice(1));
     }
 };
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = ".test-button {\n    font-size: 60px;\n  }\n  ";
+styleInject(css_248z);
 
 const MenuButton = ({ icon, color, title, subtitle, onClick, }) => {
     return (React.createElement(Button, { width: `100%`, paddingY: "40px", marginBottom: "10px", size: "lg", colorScheme: "gray", boxShadow: "md", justifyContent: `flex-start`, onClick: onClick, overflow: "clip" },
