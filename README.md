@@ -1,3 +1,5 @@
-# Admin Portal Core 
 
-As I've been coding in javascript, I've gradually been building my own library of date utilities for use across my projects, especially with Neo4j
+ # ReadMe
+
+Tutorial followed:
+ https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe
