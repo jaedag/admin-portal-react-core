@@ -16,20 +16,13 @@
     "ecmaVersion": 2022,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "settings": {
     "react": {
       "version": "detect"
     },
     "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx"
-      ]
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       "typescript": {}
@@ -43,10 +36,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".tsx",
-          ".ts"
-        ]
+        "extensions": [".tsx", ".ts"]
       }
     ],
     "react/function-component-definition": [
@@ -55,5 +45,13 @@
         "namedComponents": "arrow-function"
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.stories.tsx"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
 }
