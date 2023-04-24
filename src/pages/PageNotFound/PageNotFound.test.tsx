@@ -1,8 +1,6 @@
 import React from 'react'
 import { render, screen, fireEvent, act } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { Button } from '@chakra-ui/react'
-import { FaHome } from 'react-icons/fa'
 import PageNotFound from './PageNotFound'
 import '@testing-library/jest-dom'
 

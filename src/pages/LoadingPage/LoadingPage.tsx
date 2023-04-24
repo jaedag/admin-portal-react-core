@@ -4,7 +4,7 @@ import React from 'react'
 const LoadingPage = () => {
   return (
     <Center height="100vh">
-      <Spinner size="xl" />
+      <Spinner data-testid="spinner" size="xl" />
     </Center>
   )
 }
