@@ -7,7 +7,7 @@ type RoleCardProps = {
   role: Role
 }
 
-const RoleCard = ({ number, role }: RoleCardProps) => {
+const RoleCard: React.FC<RoleCardProps> = ({ number, role }: RoleCardProps) => {
   let color = ''
 
   switch (true) {
@@ -46,6 +46,7 @@ const RoleCard = ({ number, role }: RoleCardProps) => {
 
   return (
     <Card
+      data-testid="role-card"
       align="center"
       width="120px"
       height="120px"
