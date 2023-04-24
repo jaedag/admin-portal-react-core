@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoadingPage spinner has the correct size 1`] = `
+exports[`LoadingPage spinner renders correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
