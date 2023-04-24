@@ -4,6 +4,26 @@
 
 *  update CHANGELOG.md and version bump ([979eb105](https://github.com/jaedag/admin-portal-core/commit/979eb1057b54baaa20055da14a9aaafcd9a28e32))
 
+##### Tests
+
+*  update npm script ([da159468](https://github.com/jaedag/admin-portal-core/commit/da1594687fb1e1a55c699937cfd9956fb1fb6b35))
+
+## 2.0.0 (2023-04-24)
+
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump ([979eb105](https://github.com/jaedag/admin-portal-core/commit/979eb1057b54baaa20055da14a9aaafcd9a28e32))
+
+##### Tests
+
+*  update npm script ([da159468](https://github.com/jaedag/admin-portal-core/commit/da1594687fb1e1a55c699937cfd9956fb1fb6b35))
+
+## 2.0.0 (2023-04-24)
+
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump ([979eb105](https://github.com/jaedag/admin-portal-core/commit/979eb1057b54baaa20055da14a9aaafcd9a28e32))
+
 #### 1.0.28 (2023-04-24)
 
 #### 1.0.27 (2023-04-24)
