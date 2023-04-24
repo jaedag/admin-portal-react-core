@@ -12,20 +12,10 @@ describe('LoadingPage', () => {
 
   // TODO: Imlpement test to check whether comopnent was called with correct props
 
-  jest.mock('@chakra-ui/react', () => ({
-    ...jest.requireActual('@chakra-ui/react'),
-    Spinner: jest.fn(() => <div data-testid="spinner" />),
-  }))
-
-  const { Spinner } = jest.requireMock('@chakra-ui/react')
-
+  jest.mock('@chakra-ui/react', () => 'This is PermissionsContainer')
   test('spinner has the correct size', () => {
-    // const { getByTestId } = render(<LoadingPage />)
-    // const spinner = getByTestId('spinner')
-    // expect(Spinner).toHaveBeenCalledWith(
-    //   expect.objectContaining({ size: 'xl' }),
-    //   expect.anything()
-    // )
+    const container = render(<LoadingPage />)
+    expect(container).toMatchSnapshot()
   })
 
   test('centered vertically', () => {
