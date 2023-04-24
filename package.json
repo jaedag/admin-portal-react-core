@@ -1,7 +1,7 @@
 {
   "name": "@jaedag/admin-portal-core",
   "version": "1.0.27",
-  "description": "Utilities and components for admin-portal app with React TS and Chakra UI.",
+  "description": "Utilities and components for admin-portal app with React TS and Chakra UI",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -14,6 +14,7 @@
     "release:major": "node scripts/release.js major",
     "release:minor": "node scripts/release.js minor",
     "release:patch": "node scripts/release.js patch",
+    "release:test": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
