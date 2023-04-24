@@ -6,6 +6,12 @@ import { FaHome } from 'react-icons/fa'
 import PageNotFound from './PageNotFound'
 import '@testing-library/jest-dom'
 
+const mockNavigate = jest.fn()
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
+  useNavigate: () => mockNavigate,
+}))
+
 describe('PageNotFound', () => {
   test('renders the correct error message', () => {
     render(
@@ -34,25 +40,19 @@ describe('PageNotFound', () => {
   })
 
   test('clicking the "Take Me Home" button navigates to the home page', async () => {
-    const mockNavigate = jest.fn()
-    jest.mock('react-router', () => ({
-      useNavigate: () => mockNavigate,
-    }))
-
     render(
       <MemoryRouter>
         <PageNotFound />
       </MemoryRouter>
     )
     const button = screen.getByRole('button', { name: /Take Me Home/i })
-    console.log(button)
     fireEvent.click(button)
 
     await act(async () => {
-      await Promise.resolve() // wait for the next tick of the event loop
+      await Promise.resolve()
     })
 
-    // expect(mockNavigate).toHaveBeenCalledWith('/')
-    expect(mockNavigate).toHaveBeenCalledTimes(1) // Ensure the function was called exactly once
+    expect(mockNavigate).toHaveBeenCalledWith('/')
+    expect(mockNavigate).toHaveBeenCalledTimes(1)
   })
 })
