@@ -3,7 +3,7 @@ import { Button } from '@chakra-ui/react'
 
 const ViewAll = ({ onClick }: { onClick: () => void }) => {
   return (
-    <Button size="sm" colorScheme="gray" color="black" onClick={onClick}>
+    <Button size="sm" colorScheme="gray" onClick={onClick}>
       View All
     </Button>
   )
