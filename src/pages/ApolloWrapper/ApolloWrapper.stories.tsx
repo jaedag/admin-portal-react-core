@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import ApolloWrapper from './ApolloWrapper'
-import MenuButton from '@/components/MenuButton/MenuButton'
+import MenuButton from '@/components/buttons/MenuButton/MenuButton'
 import { AiOutlineUser } from 'react-icons/ai'
 
 export default {

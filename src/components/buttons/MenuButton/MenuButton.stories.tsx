@@ -4,7 +4,7 @@ import { AiOutlineUser } from 'react-icons/ai'
 import MenuButton from './MenuButton'
 
 export default {
-  title: 'Components/MenuButton',
+  title: 'Components/Buttons/MenuButton',
   component: MenuButton,
 } as Meta
 
