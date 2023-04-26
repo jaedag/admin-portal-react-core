@@ -1,1 +1,1 @@
-export { default } from './Timeline'
+export { default, TimelineElement } from './Timeline'
