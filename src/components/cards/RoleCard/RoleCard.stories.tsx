@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 import RoleCard from './RoleCard'
 
 export default {
-  title: 'Components/RoleCard',
+  title: 'Components/Cards/RoleCard',
   component: RoleCard,
 } as Meta
 
