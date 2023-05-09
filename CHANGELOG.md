@@ -1,3 +1,13 @@
+#### 1.0.33 (2023-05-09)
+
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump ([d27d32a6](https://github.com/jaedag/admin-portal-core/commit/d27d32a6135191497448cf391715131479295e58))
+
+##### New Features
+
+*  implement MemberDetailsCard ([787930d3](https://github.com/jaedag/admin-portal-core/commit/787930d3d006eaeb033f392a1b705be499584e3d))
+
 #### 1.0.33 (2023-05-05)
 
 #### 1.0.32 (2023-04-26)
