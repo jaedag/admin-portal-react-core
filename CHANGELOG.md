@@ -1,5 +1,11 @@
 #### 1.0.36 (2023-05-09)
 
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump ([5a370372](https://github.com/jaedag/admin-portal-core/commit/5a37037249c20b543cddc0b8470958115eb892cb))
+
+#### 1.0.36 (2023-05-09)
+
 #### 1.0.35 (2023-05-09)
 
 ##### Documentation Changes
