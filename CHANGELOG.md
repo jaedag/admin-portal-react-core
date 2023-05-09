@@ -1,5 +1,15 @@
 #### 1.0.35 (2023-05-09)
 
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump ([b8aba70f](https://github.com/jaedag/admin-portal-core/commit/b8aba70fd6a532c60f05cc80c3fcf3f2c8899452))
+
+##### Bug Fixes
+
+*  correct export of EditButton ([1bf34742](https://github.com/jaedag/admin-portal-core/commit/1bf34742dd3c7afe82e4745433dd419bbda80930))
+
+#### 1.0.35 (2023-05-09)
+
 #### 1.0.34 (2023-05-09)
 
 #### 1.0.33 (2023-05-09)
