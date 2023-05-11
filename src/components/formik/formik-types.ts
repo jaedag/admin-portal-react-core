@@ -4,5 +4,5 @@ export interface FormikComponentProps {
   className?: string
   placeholder?: string
   options?: { key: string; value: string }[]
-  error?: unknown
+  error?: string
 }
