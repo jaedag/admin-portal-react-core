@@ -7,7 +7,7 @@ describe('ImageUpload', () => {
   const defaultProps: ImageUploadProps = {
     name: 'image',
     label: 'Upload an image',
-    currentUser: { id: '1', firstName: 'John', lastName: 'Doe' },
+    user: { id: '1', firstName: 'John', lastName: 'Doe' },
     setFieldValue: jest.fn(),
   }
 
