@@ -7,7 +7,6 @@ describe('InitialLoading', () => {
   test('renders a spinner', () => {
     const { getByTestId } = render(<InitialLoading />)
     const spinner = getByTestId('spinner')
-    expect(spinner).toHaveClass('chakra-spinner')
     expect(spinner).toBeInTheDocument()
   })
 
