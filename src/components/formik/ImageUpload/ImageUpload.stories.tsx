@@ -10,7 +10,7 @@ export default {
   args: {
     label: 'Image Upload',
     name: 'image',
-    currentUser: {
+    user: {
       id: '123',
       firstName: 'John',
       lastName: 'Doe',

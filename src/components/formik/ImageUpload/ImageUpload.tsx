@@ -18,7 +18,7 @@ export interface ImageUploadProps extends FormikComponentProps {
   tags?: 'facial-recognition'
   initialValue?: string
   loading?: boolean
-  currentUser: {
+  user: {
     id: string
     firstName: string
     lastName: string
@@ -35,7 +35,7 @@ const ImageUpload = (props: ImageUploadProps) => {
     uploadPreset,
     placeholder,
     tags,
-    currentUser,
+    user,
     ...rest
   } = props
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -48,8 +48,8 @@ const ImageUpload = (props: ImageUploadProps) => {
   const uploadImage: ChangeEventHandler<HTMLInputElement> = async (e) => {
     const files = e.target.files ?? []
     const date = new Date().toISOString().slice(0, 10)
-    const username = `${currentUser.firstName.toLowerCase()}-${currentUser.lastName.toLowerCase()}`
-    let filename = `church-insights/${username}-${currentUser.id}/${date}_${files[0].name}`
+    const username = `${user.firstName.toLowerCase()}-${user.lastName.toLowerCase()}`
+    let filename = `church-insights/${username}-${user.id}/${date}_${files[0].name}`
     filename = filename.replace(/\s/g, '-')
     filename = filename.replace(/~/g, '-')
     filename = filename.replace(/[^a-zA-Z0-9-_]/g, '')
