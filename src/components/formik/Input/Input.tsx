@@ -12,6 +12,7 @@ export interface InputProps extends FormikComponentProps {
   type?:
     | 'date'
     | 'time'
+    | 'datetime-local'
     | 'password'
     | 'color'
     | 'email'
