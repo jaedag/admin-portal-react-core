@@ -9,7 +9,17 @@ import {
 import { FormikComponentProps } from '../formik-types'
 
 export interface InputProps extends FormikComponentProps {
-  type?: 'date' | 'time'
+  type?:
+    | 'date'
+    | 'time'
+    | 'password'
+    | 'color'
+    | 'email'
+    | 'number'
+    | 'search'
+    | 'tel'
+    | 'text'
+    | 'url'
 }
 
 const Input = (props: InputProps) => {
