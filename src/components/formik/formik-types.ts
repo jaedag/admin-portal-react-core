@@ -5,4 +5,5 @@ export interface FormikComponentProps {
   placeholder?: string
   options?: { key: string; value: string }[]
   error?: string
+  size?: 'sm' | 'md' | 'lg'
 }
