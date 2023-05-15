@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import LoadingPage from '../LoadingPage/LoadingPage'
 import ErrorPage from '../ErrorPage/ErrorPage'
 
@@ -7,7 +7,7 @@ type ApolloWrapperPropsType = {
   data: unknown
   loading: boolean
   error?: unknown
-  children: JSX.Element
+  children: ReactNode
 }
 
 const ApolloWrapper = (props: ApolloWrapperPropsType) => {
