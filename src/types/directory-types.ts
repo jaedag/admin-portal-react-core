@@ -27,7 +27,7 @@ export interface Member {
   ministry: {
     id: string
     name: string
-  }
+  } | null
 }
 
 export type TitleOptions = 'Pastor' | 'Reverend' | 'Bishop'
