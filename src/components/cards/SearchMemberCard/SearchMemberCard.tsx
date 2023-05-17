@@ -5,13 +5,19 @@ import { getCloudinaryPreset } from '@/utils'
 
 export interface SearchMemberCardPropsInterface {
   member: Member
+  onClick?: () => void
 }
 
 const SearchMemberCard = (props: SearchMemberCardPropsInterface) => {
-  const { member } = props
+  const { member, onClick } = props
 
   return (
-    <Card direction="row" marginY={2}>
+    <Card
+      data-testid="search-member-card"
+      direction="row"
+      marginY={2}
+      onClick={onClick}
+    >
       <CardBody>
         <Flex gap="5" alignContent="center" alignItems="center">
           <Avatar
