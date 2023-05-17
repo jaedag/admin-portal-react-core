@@ -39,4 +39,26 @@ describe('SearchMemberCard', () => {
     const ministryElement = queryByText(member.ministry?.name ?? '')
     expect(ministryElement).toBeNull()
   })
+
+  it('does not render picture if member has no picture', () => {
+    const memberWithoutPicture = { ...member, pictureUrl: '' } as Member
+    const { queryByTestId } = render(
+      <SearchMemberCard member={memberWithoutPicture} />
+    )
+
+    const pictureElement = queryByTestId('member-picture')
+    expect(pictureElement).toBeNull()
+  })
+
+  it('calls onClick when clicked', () => {
+    const onClick = jest.fn()
+    const { getByTestId } = render(
+      <SearchMemberCard member={member} onClick={onClick} />
+    )
+
+    const card = getByTestId('search-member-card')
+    card.click()
+
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
 })
