@@ -29,6 +29,7 @@ Default.args = {
       name: 'Greater Love Choir',
     },
   } as Member,
+  onClick: () => alert('Card clicked'),
 }
 
 export const MemberWithoutMinistry = Template.bind({})
@@ -39,4 +40,5 @@ MemberWithoutMinistry.args = {
     lastName: 'Abramov',
     pictureUrl: 'https://bit.ly/dan-abramov',
   } as Member,
+  onClick: () => alert('Card clicked'),
 }
