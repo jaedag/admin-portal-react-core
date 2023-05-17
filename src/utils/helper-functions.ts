@@ -12,3 +12,9 @@ export const capitalise = (str: string) => {
       return str?.charAt(0).toUpperCase() + str?.slice(1)
   }
 }
+
+export const getCloudinaryPreset = (url: string) =>
+  url.replace(
+    'https://res.cloudinary.com/firstlovecenter/image/upload/',
+    'https://res.cloudinary.com/firstlovecenter/image/upload/c_thumb,g_face,h_150,w_150,z_0.7/'
+  )
