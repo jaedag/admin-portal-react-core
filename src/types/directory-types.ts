@@ -31,3 +31,36 @@ export interface Member {
 }
 
 export type TitleOptions = 'Pastor' | 'Reverend' | 'Bishop'
+
+export type ChurchLevel =
+  | 'Fellowship'
+  | 'Bacenta'
+  | 'Constituency'
+  | 'Council'
+  | 'Stream'
+  | 'GatheringService'
+  | 'Oversight'
+  | 'Sonta'
+  | 'Basonta'
+  | 'Ministry'
+  | 'Hub'
+  | 'Federalministry'
+
+export interface Church {
+  id: string
+  name: string
+  levelName: string
+  leader: {
+    id: string
+    firstName: string
+    lastName: string
+    fullName: string
+    currentTitle: 'Pastor' | 'Reverend' | 'Bishop'
+    nameWithTitle: string
+    phoneNumber: string
+    whatsappNumber: string
+    pictureUrl: string
+  }
+  vacationStatus?: 'Vacation' | 'Active'
+  __typename: ChurchLevel
+}
