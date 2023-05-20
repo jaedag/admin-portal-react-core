@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchMemberCard matches snapshot 1`] = `
+exports[`SearchChurchCard matches snapshot 1`] = `
 <div>
   <div
     class="chakra-card css-lgv4hl"
-    data-testid="search-member-card"
+    data-testid="search-church-card"
   >
     <div
       class="chakra-card__body css-0"
@@ -13,15 +13,18 @@ exports[`SearchMemberCard matches snapshot 1`] = `
         class="css-hsgtjs"
       >
         <span
-          class="chakra-avatar css-1ruhx4w"
+          class="chakra-avatar css-6zzhhc"
           data-testid="avatar"
         >
           <div
-            aria-label="John Doe"
+            aria-label="Greater Love MegaBacenta"
             class="chakra-avatar__initials css-0"
             role="img"
           >
-            JD
+            GM
+          </div>
+          <div>
+            SearchIconBadge
           </div>
         </span>
         <div
@@ -30,12 +33,12 @@ exports[`SearchMemberCard matches snapshot 1`] = `
           <p
             class="chakra-text css-t8vhkl"
           >
-            John Doe
+            Greater Love MegaBacenta
           </p>
           <p
             class="chakra-text css-1hxe9sv"
           >
-            Ministry of Awesome
+            Ps. Dan Abramov
           </p>
         </div>
       </div>
