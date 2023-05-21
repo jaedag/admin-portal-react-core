@@ -89,6 +89,24 @@ WithCouncil.args = {
   onClick: () => alert('Card clicked'),
 }
 
+export const WithStream = Template.bind({})
+WithStream.args = {
+  church: {
+    id: '1',
+    name: 'Greater Love',
+    levelName: 'Stream',
+    __typename: 'Stream',
+    leader: {
+      id: '1',
+      firstName: 'Dan',
+      lastName: 'Abramov',
+      nameWithTitle: 'Ps. Dan Abramov',
+      pictureUrl: 'https://bit.ly/dan-abramov',
+    },
+  } as Church,
+  onClick: () => alert('Card clicked'),
+}
+
 export const WithCampus = Template.bind({})
 WithCampus.args = {
   church: {
