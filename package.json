@@ -43,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaedag/admin-portal-core.git"
+    "url": "git+https://github.com/jaedag/admin-portal-frontend-core.git"
   },
   "keywords": [
     "components",
@@ -52,7 +52,7 @@
   "author": "John-Dag Addy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jaedag/admin-portal-core/issues"
+    "url": "https://github.com/jaedag/admin-portal-frontend-core/issues"
   },
   "homepage": "https://github.com/jaedag/admin-portal-core#readme",
   "devDependencies": {
