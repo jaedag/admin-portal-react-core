@@ -13,8 +13,11 @@ export const capitalise = (str: string) => {
   }
 }
 
-export const getCloudinaryPreset = (url: string) =>
-  url.replace(
+export const getCloudinaryPreset = (url: string) => {
+  if (!url) return ''
+
+  return url.replace(
     'https://res.cloudinary.com/firstlovecenter/image/upload/',
     'https://res.cloudinary.com/firstlovecenter/image/upload/c_thumb,g_face,h_150,w_150,z_0.7/'
   )
+}

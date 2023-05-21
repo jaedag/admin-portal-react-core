@@ -126,7 +126,7 @@ const SearchChurchCard = (props: SearchChurchCardPropsInterface) => {
             borderRadius={10}
             name={church.name + ' ' + church.levelName}
             size="lg"
-            src={getCloudinaryPreset(church.leader.pictureUrl)}
+            src={getCloudinaryPreset(church?.leader.pictureUrl)}
           >
             <SearchIconBadge church={church} />
           </Avatar>
