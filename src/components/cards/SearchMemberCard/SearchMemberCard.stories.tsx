@@ -27,10 +27,12 @@ Default.args = {
     fellowship: {
       id: '1',
       name: 'Tuesday Night Football',
+      levelName: 'Fellowship',
     },
     ministry: {
       id: '1',
       name: 'Greater Love Choir',
+      levelName: 'Ministry',
     },
   } as Member,
   onClick: () => alert('Card clicked'),
@@ -46,6 +48,7 @@ MemberWithoutMinitry.args = {
     fellowship: {
       id: '1',
       name: 'Tuesday Night Football',
+      levelName: 'Fellowship',
     },
   } as Member,
   onClick: () => alert('Card clicked'),

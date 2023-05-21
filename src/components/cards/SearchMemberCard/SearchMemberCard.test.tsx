@@ -6,11 +6,19 @@ import '@testing-library/jest-dom'
 
 // Mock member data
 const member = {
-  firstName: 'John',
-  lastName: 'Doe',
-  pictureUrl: 'https://example.com/avatar.jpg',
+  id: '1',
+  firstName: 'Dan',
+  lastName: 'Abramov',
+  pictureUrl: 'https://bit.ly/dan-abramov',
+  fellowship: {
+    id: '1',
+    name: 'Tuesday Night Football',
+    levelName: 'Fellowship',
+  },
   ministry: {
-    name: 'Ministry of Awesome',
+    id: '1',
+    name: 'Greater Love Choir',
+    levelName: 'Ministry',
   },
 } as Member
 
