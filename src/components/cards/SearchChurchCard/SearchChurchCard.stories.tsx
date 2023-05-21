@@ -52,3 +52,75 @@ WithBacenta.args = {
   } as Church,
   onClick: () => alert('Card clicked'),
 }
+
+export const WithConstituency = Template.bind({})
+WithConstituency.args = {
+  church: {
+    id: '1',
+    name: 'Greater Love',
+    levelName: 'Constituency',
+    __typename: 'Constituency',
+    leader: {
+      id: '1',
+      firstName: 'Dan',
+      lastName: 'Abramov',
+      nameWithTitle: 'Ps. Dan Abramov',
+      pictureUrl: 'https://bit.ly/dan-abramov',
+    },
+  } as Church,
+  onClick: () => alert('Card clicked'),
+}
+
+export const WithCouncil = Template.bind({})
+WithCouncil.args = {
+  church: {
+    id: '1',
+    name: 'Greater Love',
+    levelName: 'Council',
+    __typename: 'Council',
+    leader: {
+      id: '1',
+      firstName: 'Dan',
+      lastName: 'Abramov',
+      nameWithTitle: 'Ps. Dan Abramov',
+      pictureUrl: 'https://bit.ly/dan-abramov',
+    },
+  } as Church,
+  onClick: () => alert('Card clicked'),
+}
+
+export const WithCampus = Template.bind({})
+WithCampus.args = {
+  church: {
+    id: '1',
+    name: 'Greater Love',
+    levelName: 'Campus',
+    __typename: 'Campus',
+    leader: {
+      id: '1',
+      firstName: 'Dan',
+      lastName: 'Abramov',
+      nameWithTitle: 'Ps. Dan Abramov',
+      pictureUrl: 'https://bit.ly/dan-abramov',
+    },
+  } as Church,
+  onClick: () => alert('Card clicked'),
+}
+
+export const WithOversight = Template.bind({})
+WithOversight.args = {
+  church: {
+    id: '1',
+    name: 'Greater Love',
+    levelName: 'Oversight',
+    __typename: 'Oversight',
+    leader: {
+      id: '1',
+      firstName: 'Dan',
+      lastName: 'Abramov',
+      nameWithTitle: 'Ps. Dan Abramov',
+      pictureUrl: 'https://bit.ly/dan-abramov',
+    },
+  } as Church,
+  onClick: () => alert('Card clicked'),
+}
