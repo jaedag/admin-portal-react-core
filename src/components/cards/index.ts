@@ -4,3 +4,4 @@ export { default as MemberDetailCard } from './MemberDetailCard'
 
 // Search Card Components
 export { default as SearchMemberCard } from './SearchMemberCard'
+export { default as SearchChurchCard } from './SearchChurchCard'
