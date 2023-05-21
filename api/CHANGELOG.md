@@ -1,3 +1,41 @@
+#### 1.0.5 (2023-05-21)
+
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump (a3df2589)
+*  update CHANGELOG.md and version bump (8f3f952d)
+*  update CHANGELOG.md and version bump (75d31be6)
+
+#### 1.0.5 (2023-05-21)
+
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump (8f3f952d)
+*  update CHANGELOG.md and version bump (75d31be6)
+
+#### 1.0.5 (2023-05-21)
+
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump (75d31be6)
+
+#### 1.0.5 (2023-05-21)
+
+#### 1.0.4 (2023-05-21)
+
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump (42563696)
+*  update CHANGELOG.md and version bump (7eabfd12)
+
+#### 1.0.4 (2023-05-21)
+
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump (7eabfd12)
+
+#### 1.0.4 (2023-05-21)
+
 #### 1.0.3 (2023-05-21)
 
 ##### Documentation Changes
