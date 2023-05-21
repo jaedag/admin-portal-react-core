@@ -1,11 +1,11 @@
-import { Button } from '@chakra-ui/react'
+import { Button, ButtonProps } from '@chakra-ui/react'
 import { FormikProps } from 'formik'
 import React, { ReactNode } from 'react'
 
 export type SubmitButtonProps = {
   formik: FormikProps<unknown>
   children?: ReactNode
-}
+} & Omit<ButtonProps, 'isLoading' | 'type'>
 
 const SubmitButton = (props: SubmitButtonProps) => {
   const { formik, ...rest } = props
