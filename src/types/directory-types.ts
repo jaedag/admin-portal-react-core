@@ -20,14 +20,8 @@ export interface Member {
   maritalStatus: { status: 'Married' | 'Single' }
   gender: { gender: 'Male' | 'Female' }
   occupation: { occupation: string }
-  fellowship: {
-    id: string
-    name: string
-  }
-  ministry: {
-    id: string
-    name: string
-  } | null
+  fellowship: Church
+  ministry: Church | null
 }
 
 export type TitleOptions = 'Pastor' | 'Reverend' | 'Bishop'
