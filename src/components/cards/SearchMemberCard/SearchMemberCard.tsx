@@ -42,7 +42,7 @@ const SearchMemberCard = (props: SearchMemberCardPropsInterface) => {
 
             {!!member.fellowship && (
               <Text
-                color={colorMode === 'light' ? 'gray.400' : 'gray.200'}
+                color={colorMode === 'light' ? 'gray.400' : 'gray.300'}
                 marginBottom={0}
               >
                 {member.fellowship.levelName + ': ' + member.fellowship.name}
