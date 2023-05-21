@@ -38,6 +38,7 @@ export type ChurchLevel =
   | 'Constituency'
   | 'Council'
   | 'Stream'
+  | 'Campus'
   | 'GatheringService'
   | 'Oversight'
   | 'Sonta'

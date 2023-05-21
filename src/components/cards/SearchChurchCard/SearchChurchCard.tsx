@@ -11,7 +11,13 @@ import {
 import { getCloudinaryPreset } from '@/utils'
 import { Church } from '@/types'
 import { BsPeopleFill } from 'react-icons/bs'
-import { FaBus } from 'react-icons/fa'
+import {
+  FaBus,
+  FaEye,
+  FaHouseUser,
+  FaPlaceOfWorship,
+  FaUsers,
+} from 'react-icons/fa'
 
 export interface SearchChurchCardPropsInterface {
   church: Church
@@ -45,7 +51,62 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
     )
   }
 
-  return <div>SearchIconBadge</div>
+  if (church.__typename === 'Constituency') {
+    return (
+      <AvatarBadge
+        borderColor="yellow.200"
+        bg="yellow.600"
+        boxSize="1.25em"
+        padding={1}
+      >
+        <FaHouseUser color="white" />
+      </AvatarBadge>
+    )
+  }
+
+  if (church.__typename === 'Council') {
+    return (
+      <AvatarBadge
+        borderColor="purple.200"
+        bg="purple.600"
+        boxSize="1.25em"
+        padding={1}
+      >
+        <FaUsers color="white" />
+      </AvatarBadge>
+    )
+  }
+
+  if (
+    church.__typename === 'GatheringService' ||
+    church.__typename === 'Campus'
+  ) {
+    return (
+      <AvatarBadge
+        borderColor="green.200"
+        bg="green.600"
+        boxSize="1.25em"
+        padding={1}
+      >
+        <FaPlaceOfWorship color="white" />
+      </AvatarBadge>
+    )
+  }
+
+  if (church.__typename === 'Oversight') {
+    return (
+      <AvatarBadge
+        borderColor="cyan.200"
+        bg="cyan.600"
+        boxSize="1.25em"
+        padding={1}
+      >
+        <FaEye color="white" />
+      </AvatarBadge>
+    )
+  }
+
+  return <AvatarBadge boxSize="1.25em" bg="white" />
 }
 
 const SearchChurchCard = (props: SearchChurchCardPropsInterface) => {
