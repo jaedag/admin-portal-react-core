@@ -31,8 +31,13 @@ const SearchMemberCard = (props: SearchMemberCardPropsInterface) => {
               {member.firstName + ' ' + member.lastName}
             </Text>
 
+            {!!member.fellowship && (
+              <Text color="gray.200" marginTop={0}>
+                {member.fellowship.name}
+              </Text>
+            )}
             {!!member.ministry && (
-              <Text color="grey" marginTop={0}>
+              <Text color="green.200" marginTop={0}>
                 {member.ministry.name}
               </Text>
             )}

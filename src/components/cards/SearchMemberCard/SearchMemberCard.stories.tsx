@@ -24,6 +24,10 @@ Default.args = {
     firstName: 'Dan',
     lastName: 'Abramov',
     pictureUrl: 'https://bit.ly/dan-abramov',
+    fellowship: {
+      id: '1',
+      name: 'Tuesday Night Football',
+    },
     ministry: {
       id: '1',
       name: 'Greater Love Choir',
@@ -32,8 +36,23 @@ Default.args = {
   onClick: () => alert('Card clicked'),
 }
 
-export const MemberWithoutMinistry = Template.bind({})
-MemberWithoutMinistry.args = {
+export const MemberWithoutMinitry = Template.bind({})
+MemberWithoutMinitry.args = {
+  member: {
+    id: '1',
+    firstName: 'Dan',
+    lastName: 'Abramov',
+    pictureUrl: 'https://bit.ly/dan-abramov',
+    fellowship: {
+      id: '1',
+      name: 'Tuesday Night Football',
+    },
+  } as Member,
+  onClick: () => alert('Card clicked'),
+}
+
+export const MemberWithoutGroups = Template.bind({})
+MemberWithoutGroups.args = {
   member: {
     id: '1',
     firstName: 'Dan',
