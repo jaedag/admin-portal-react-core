@@ -1,5 +1,11 @@
 #### 1.0.56 (2023-05-21)
 
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump ([08590682](https://github.com/jaedag/admin-portal-frontend-core/commit/085906821e89ffa7c6072708cbdb066b83cba658))
+
+#### 1.0.56 (2023-05-21)
+
 #### 1.0.55 (2023-05-21)
 
 #### 1.0.54 (2023-05-21)
