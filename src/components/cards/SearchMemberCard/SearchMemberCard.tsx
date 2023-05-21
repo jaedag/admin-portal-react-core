@@ -1,5 +1,13 @@
 import React from 'react'
-import { Avatar, Box, Card, CardBody, Flex, Text } from '@chakra-ui/react'
+import {
+  Avatar,
+  Box,
+  Card,
+  CardBody,
+  Flex,
+  Text,
+  useColorMode,
+} from '@chakra-ui/react'
 import { Member } from '@/types'
 import { getCloudinaryPreset } from '@/utils'
 
@@ -10,6 +18,7 @@ export interface SearchMemberCardPropsInterface {
 
 const SearchMemberCard = (props: SearchMemberCardPropsInterface) => {
   const { member, onClick } = props
+  const { colorMode } = useColorMode()
 
   return (
     <Card
@@ -32,12 +41,18 @@ const SearchMemberCard = (props: SearchMemberCardPropsInterface) => {
             </Text>
 
             {!!member.fellowship && (
-              <Text color="gray.200" marginBottom={0}>
+              <Text
+                color={colorMode === 'light' ? 'gray.400' : 'gray.200'}
+                marginBottom={0}
+              >
                 {member.fellowship.levelName + ': ' + member.fellowship.name}
               </Text>
             )}
             {!!member.ministry && (
-              <Text color="green.200" marginBottom={0}>
+              <Text
+                color={colorMode === 'light' ? 'green.400' : 'green.200'}
+                marginBottom={0}
+              >
                 {member.ministry.name}
               </Text>
             )}
