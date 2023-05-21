@@ -1,5 +1,5 @@
 {
-  "name": "@jaedag/admin-portal-core",
+  "name": "@jaedag/admin-portal-frontend-core",
   "version": "1.0.56",
   "description": "Utilities and components for admin-portal app with React TS and Chakra UI",
   "main": "dist/cjs/index.js",
