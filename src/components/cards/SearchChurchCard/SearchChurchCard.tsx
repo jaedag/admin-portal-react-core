@@ -16,6 +16,7 @@ import {
   FaEye,
   FaHouseUser,
   FaPlaceOfWorship,
+  FaSynagogue,
   FaUsers,
 } from 'react-icons/fa'
 
@@ -73,6 +74,19 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
         padding={1}
       >
         <FaUsers color="white" />
+      </AvatarBadge>
+    )
+  }
+
+  if (church.__typename === 'Stream') {
+    return (
+      <AvatarBadge
+        borderColor="pink.200"
+        bg="pink.600"
+        boxSize="1.25em"
+        padding={1}
+      >
+        <FaSynagogue color="white" />
       </AvatarBadge>
     )
   }
