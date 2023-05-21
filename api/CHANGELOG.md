@@ -1,3 +1,10 @@
+#### 1.0.3 (2023-05-21)
+
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump (79a29eac)
+*  update CHANGELOG.md and version bump (fa4e805b)
+
 #### 1.0.2 (2023-05-21)
 
 ##### Documentation Changes
