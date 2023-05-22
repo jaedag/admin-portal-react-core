@@ -1,3 +1,14 @@
+import { FormikSelectOptions } from '@/components/formik/formik-types'
+
+export const GENDER_OPTIONS: FormikSelectOptions = [
+  { key: 'Male', value: 'Male' },
+  { key: 'Female', value: 'Female' },
+]
+export const MARITAL_STATUS_OPTIONS: FormikSelectOptions = [
+  { key: 'Single', value: 'Single' },
+  { key: 'Married', value: 'Married' },
+]
+
 export const capitalise = (str: string) => {
   switch (str) {
     case 'first love experience':

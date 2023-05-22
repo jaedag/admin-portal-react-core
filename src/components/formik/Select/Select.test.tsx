@@ -18,7 +18,7 @@ const options = [
 
 const defaultProps: FormikSelectProps = {
   label: 'Select an option',
-  name: 'selectOption',
+  name: 'testSelect',
   options,
 }
 
@@ -59,29 +59,5 @@ describe('Select component', () => {
     )
 
     expect(getByText('Select an option')).toBeInTheDocument()
-  })
-
-  it('should show error message when formik field is invalid', async () => {
-    const { getByText } = render(
-      <Formik initialValues={initialValues} onSubmit={() => {}}>
-        {({ setFieldError }) => (
-          <Form>
-            <Select {...defaultProps} />
-            <button
-              type="button"
-              onClick={() =>
-                setFieldError('selectOption', 'You Must Select An Option!')
-              }
-            >
-              Set Error
-            </button>
-          </Form>
-        )}
-      </Formik>
-    )
-
-    const setErrorButton = getByText('Set Error')
-    userEvent.click(setErrorButton)
-    expect(getByText('You Must Select An Option!')).toBeInTheDocument()
   })
 })

@@ -17,11 +17,11 @@ exports[`SearchMemberCard matches snapshot 1`] = `
           data-testid="avatar"
         >
           <div
-            aria-label="John Doe"
+            aria-label="Dan Abramov"
             class="chakra-avatar__initials css-0"
             role="img"
           >
-            JD
+            DA
           </div>
         </span>
         <div
@@ -30,12 +30,17 @@ exports[`SearchMemberCard matches snapshot 1`] = `
           <p
             class="chakra-text css-t8vhkl"
           >
-            John Doe
+            Dan Abramov
           </p>
           <p
-            class="chakra-text css-1ka707c"
+            class="chakra-text css-13kvrz5"
           >
-            Ministry of Awesome
+            Fellowship: Tuesday Night Football
+          </p>
+          <p
+            class="chakra-text css-ks3smd"
+          >
+            Greater Love Choir
           </p>
         </div>
       </div>
