@@ -23,9 +23,9 @@ exports[`SearchChurchCard matches snapshot 1`] = `
           >
             GM
           </div>
-          <div>
-            SearchIconBadge
-          </div>
+          <div
+            class="chakra-avatar__badge css-1ia12j7"
+          />
         </span>
         <div
           class="css-0"
