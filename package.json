@@ -1,5 +1,5 @@
 {
-  "name": "@jaedag/admin-portal-frontend-core",
+  "name": "@jaedag/admin-portal-react-core",
   "version": "1.0.58",
   "description": "Utilities and components for admin-portal app with React TS and Chakra UI",
   "main": "dist/cjs/index.js",
@@ -43,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaedag/admin-portal-frontend-core.git"
+    "url": "git+https://github.com/jaedag/admin-portal-react-core.git"
   },
   "keywords": [
     "components",
@@ -52,7 +52,7 @@
   "author": "John-Dag Addy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jaedag/admin-portal-frontend-core/issues"
+    "url": "https://github.com/jaedag/admin-portal-react-core/issues"
   },
   "homepage": "https://github.com/jaedag/admin-portal-core#readme",
   "devDependencies": {
