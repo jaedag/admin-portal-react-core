@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import SearchMemberCard, {
   SearchMemberCardPropsInterface,
 } from './SearchMemberCard'
-import { Member } from '@/types'
+import { Member } from '@jaedag/admin-portal-types'
 
 export default {
   title: 'Components/Cards/SearchMemberCard',

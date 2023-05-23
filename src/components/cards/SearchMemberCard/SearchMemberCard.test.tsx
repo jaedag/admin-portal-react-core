@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import SearchMemberCard from './SearchMemberCard'
-import { Member } from '@/types'
+import { Member } from '@jaedag/admin-portal-types'
 import '@testing-library/jest-dom'
 
 // Mock member data

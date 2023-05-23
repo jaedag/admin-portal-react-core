@@ -1,5 +1,5 @@
 import React from 'react'
-import { Role } from '@/types'
+import { Role } from '@jaedag/admin-portal-types'
 import { Card, CardFooter, CardHeader, Heading, Text } from '@chakra-ui/react'
 
 type RoleCardProps = {

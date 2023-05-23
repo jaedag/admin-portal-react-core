@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { MemoryRouter } from 'react-router'
 import Timeline, { TimelineProps, TimelineElement } from './Timeline'
 import { Meta, StoryFn } from '@storybook/react'
-import { Member } from '@/types'
+import { Member } from '@jaedag/admin-portal-types'
 
 const record: TimelineElement[] = [
   {

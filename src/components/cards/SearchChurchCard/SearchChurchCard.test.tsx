@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import SearchChurchCard from './SearchChurchCard'
-import { Church } from '@/types'
+import { Church } from '@jaedag/admin-portal-types'
 import '@testing-library/jest-dom'
 
 // Mock church data

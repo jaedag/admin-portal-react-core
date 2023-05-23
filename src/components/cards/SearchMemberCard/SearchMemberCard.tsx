@@ -8,7 +8,7 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/react'
-import { Member } from '@/types'
+import { Member } from '@jaedag/admin-portal-types'
 import { getCloudinaryPreset } from '@/utils'
 
 export interface SearchMemberCardPropsInterface {
