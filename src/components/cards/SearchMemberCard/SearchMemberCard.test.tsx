@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import SearchMemberCard from './SearchMemberCard'
-import { Member } from '@jaedag/admin-portal-types'
+import { Church, Member } from '@jaedag/admin-portal-types'
 import '@testing-library/jest-dom'
 
 // Mock member data
@@ -14,12 +14,12 @@ const member = {
     id: '1',
     name: 'Tuesday Night Football',
     levelName: 'Fellowship',
-  },
+  } as Church,
   ministry: {
     id: '1',
     name: 'Greater Love Choir',
     levelName: 'Ministry',
-  },
+  } as Church,
 } as Member
 
 describe('SearchMemberCard', () => {
@@ -39,7 +39,10 @@ describe('SearchMemberCard', () => {
   })
 
   it('does not render ministry if member has no ministry', () => {
-    const memberWithoutMinistry = { ...member, ministry: null } as Member
+    const memberWithoutMinistry = {
+      ...member,
+      ministry: null,
+    } as unknown as Member
     const { queryByText } = render(
       <SearchMemberCard member={memberWithoutMinistry} />
     )

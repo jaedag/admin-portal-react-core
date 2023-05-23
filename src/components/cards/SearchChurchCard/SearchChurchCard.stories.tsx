@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import SearchChurchCard, {
   SearchChurchCardPropsInterface,
 } from './SearchChurchCard'
-import { Church } from '@jaedag/admin-portal-types'
+import { Church, Member } from '@jaedag/admin-portal-types'
 
 export default {
   title: 'Components/Cards/SearchChurchCard',
@@ -30,7 +30,7 @@ WithFellowship.args = {
       lastName: 'Abramov',
       nameWithTitle: 'Ps. Dan Abramov',
       pictureUrl: 'https://bit.ly/dan-abramov',
-    },
+    } as Member,
   },
   onClick: () => alert('Card clicked'),
 }
@@ -48,8 +48,8 @@ WithBacenta.args = {
       lastName: 'Abramov',
       nameWithTitle: 'Ps. Dan Abramov',
       pictureUrl: 'https://bit.ly/dan-abramov',
-    },
-  } as Church,
+    } as Member,
+  },
   onClick: () => alert('Card clicked'),
 }
 
