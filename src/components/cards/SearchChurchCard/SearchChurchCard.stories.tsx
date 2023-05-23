@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import SearchChurchCard, {
   SearchChurchCardPropsInterface,
 } from './SearchChurchCard'
-import { Church } from '@/types'
+import { Church } from '@jaedag/admin-portal-types'
 
 export default {
   title: 'Components/Cards/SearchChurchCard',
@@ -31,7 +31,7 @@ WithFellowship.args = {
       nameWithTitle: 'Ps. Dan Abramov',
       pictureUrl: 'https://bit.ly/dan-abramov',
     },
-  } as Church,
+  },
   onClick: () => alert('Card clicked'),
 }
 

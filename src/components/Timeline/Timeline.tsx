@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Box, Flex, List, ListIcon, ListItem, Text } from '@chakra-ui/react'
 import { FaCircleNotch, FaInfoCircle } from 'react-icons/fa'
 import { parseDate, parseNeoTime } from '@/utils'
-import { Member } from '@/types'
+import { Member } from '@jaedag/admin-portal-types'
 
 export type TimelineElement = {
   historyRecord: string

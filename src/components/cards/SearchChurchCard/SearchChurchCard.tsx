@@ -9,7 +9,7 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { getCloudinaryPreset } from '@/utils'
-import { Church } from '@/types'
+import { Church } from '@jaedag/admin-portal-types'
 import { BsPeopleFill } from 'react-icons/bs'
 import {
   FaBus,

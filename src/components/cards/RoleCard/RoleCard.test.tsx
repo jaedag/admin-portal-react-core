@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import RoleCard from './RoleCard'
-import { Role } from '@/types'
+import { Role } from '@jaedag/admin-portal-types'
 import { ChakraProvider } from '@chakra-ui/react'
 import '@testing-library/jest-dom'
 
