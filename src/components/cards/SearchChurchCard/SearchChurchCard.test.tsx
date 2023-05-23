@@ -1,22 +1,24 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import SearchChurchCard from './SearchChurchCard'
-import { Church } from '@jaedag/admin-portal-types'
+import { Church, Member } from '@jaedag/admin-portal-types'
 import '@testing-library/jest-dom'
 
 // Mock church data
-const church = {
+const church: Church = {
   id: '1',
+  __typename: 'Campus',
   name: 'Greater Love',
-  levelName: 'MegaBacenta',
+  levelName: 'Campus',
   leader: {
     id: '1',
     firstName: 'Dan',
     lastName: 'Abramov',
     nameWithTitle: 'Ps. Dan Abramov',
     pictureUrl: 'https://bit.ly/dan-abramov',
-  },
-} as Church
+  } as Member,
+}
+
 describe('SearchChurchCard', () => {
   it('renders church information correctly', () => {
     const { getByText } = render(<SearchChurchCard church={church} />)
@@ -34,7 +36,7 @@ describe('SearchChurchCard', () => {
   })
 
   it('does not render picture if church has no picture', () => {
-    const churchWithoutPicture = { ...church, pictureUrl: '' } as Church
+    const churchWithoutPicture = { ...church, pictureUrl: '' }
     const { queryByTestId } = render(
       <SearchChurchCard church={churchWithoutPicture} />
     )

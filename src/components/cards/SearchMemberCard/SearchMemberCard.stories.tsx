@@ -34,7 +34,7 @@ Default.args = {
       name: 'Greater Love Choir',
       levelName: 'Ministry',
     },
-  } as Member,
+  } as unknown as Member,
   onClick: () => alert('Card clicked'),
 }
 
@@ -50,7 +50,7 @@ MemberWithoutMinitry.args = {
       name: 'Tuesday Night Football',
       levelName: 'Fellowship',
     },
-  } as Member,
+  } as unknown as Member,
   onClick: () => alert('Card clicked'),
 }
 
@@ -61,6 +61,6 @@ MemberWithoutGroups.args = {
     firstName: 'Dan',
     lastName: 'Abramov',
     pictureUrl: 'https://bit.ly/dan-abramov',
-  } as Member,
+  } as unknown as Member,
   onClick: () => alert('Card clicked'),
 }
