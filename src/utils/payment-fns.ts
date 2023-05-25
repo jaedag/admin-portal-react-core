@@ -1,17 +1,11 @@
 import { FormikSelectOptions } from '@/components/formik/formik-types'
+import { streamAccountType } from '@jaedag/admin-portal-types'
 
 export const GH_MOBILE_NETWORK_OPTIONS: FormikSelectOptions = [
   { key: 'MTN', value: 'MTN' },
   { key: 'Vodafone', value: 'Vodafone' },
   { key: 'AirtelTigo', value: 'AirtelTigo' },
 ]
-
-export type streamAccountType =
-  | 'aes_account'
-  | 'ges_account'
-  | 'hge_account'
-  | 'fle_account'
-  | 'manual'
 
 export const STREAM_ACCOUNT_OPTIONS: {
   key: string
