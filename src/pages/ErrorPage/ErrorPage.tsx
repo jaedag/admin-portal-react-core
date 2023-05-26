@@ -57,7 +57,7 @@ export interface ApolloError {
 }
 
 interface ErrorScreenProps {
-  error: ApolloError
+  error: ApolloError | Error | undefined
   throwToSentry: () => void
 }
 
@@ -68,15 +68,20 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
 
   const { isOpen, onClose, onOpen } = useDisclosure()
 
-  const { graphQLErrors, networkError } = error
+  const { graphQLErrors, networkError } = error as ApolloError
 
-  // if (graphQLErrors)
-  //   graphQLErrors.forEach(({ message, locations, path }) =>
-  //     console.error(
-  //       `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-  //     )
-  //   )
-  // if (networkError) console.error(`[Network error]: ${networkError}`)
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }) =>
+      // eslint-disable-next-line no-console
+      console.error(
+        `[GraphQL error]: Message: ${message}, Location: ${JSON.stringify(
+          locations
+        )}, Path: ${JSON.stringify(path)}`
+      )
+    )
+
+  // eslint-disable-next-line no-console
+  if (networkError) console.error(`[Network error]: ${networkError}`)
 
   return (
     <Center height="100vh">
@@ -84,7 +89,7 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
         <Text marginBottom={6}>There seems to be an error loading data</Text>
         <Card align="center">
           <CardHeader paddingY={4}>
-            <Heading size="md">{error.name}</Heading>
+            <Heading size="md">{error?.name}</Heading>
           </CardHeader>
           <CardBody padding={2}>
             {graphQLErrors.length > 0 && (
@@ -96,11 +101,13 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
                         fontWeight="bold"
                         color="red.400"
                       >{`code: ${extensions.code}`}</Text>
-                      <Text>{`Location: ${JSON.stringify(locations)} `}</Text>
-                      <Text color="teal.200">{`Path: ${JSON.stringify(
+                      <Text>{`Location: ${JSON.stringify(locations)}`}</Text>
+                      <Text marginBottom={3}>{`Path: ${JSON.stringify(
                         path
                       )}`}</Text>
-                      <Text>{`[GraphQL error]: Message: ${message}`}</Text>
+                      <Text
+                        noOfLines={3}
+                      >{`[GraphQL error]: Message: ${message}`}</Text>
                     </>
                   )
                 )}
@@ -115,7 +122,9 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
                       fontWeight="bold"
                       color="red.400"
                     >{`code: ${error.extensions.code}`}</Text>
-                    <Text>{`[Network error]: ${error.message}`}</Text>
+                    <Text noOfLines={3}>
+                      {`[Network error]: ${error.message}`}
+                    </Text>
                   </>
                 ))}
               </>
@@ -128,7 +137,7 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
             >
               <ModalOverlay />
               <ModalContent>
-                <ModalHeader>{error.name}</ModalHeader>
+                <ModalHeader>{error?.name}</ModalHeader>
                 <ModalBody>
                   <Text fontSize="small" color="blue.100">
                     {JSON.stringify(error)}
