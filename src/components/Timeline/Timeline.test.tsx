@@ -1,7 +1,6 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Timeline, { TimelineElement, TimelineProps } from './Timeline'
-import { parseDate, parseNeoTime } from '@/utils'
 import '@testing-library/jest-dom'
 
 jest.mock('react-router-dom', () => ({

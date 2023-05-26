@@ -1,7 +1,8 @@
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { screen, fireEvent, render } from '@testing-library/react'
 import MemberDetailsWithAvatar from './MemberDetailsWithAvatar'
 import { Member } from '@jaedag/admin-portal-types'
+import '@testing-library/jest-dom'
 
 describe('MemberDetailsWithAvatar', () => {
   const leader = {
@@ -17,11 +18,12 @@ describe('MemberDetailsWithAvatar', () => {
       <MemberDetailsWithAvatar
         leader={leader}
         title="Leader"
+        loading={false}
         onClick={() => {}}
       />
     )
 
-    const avatarElement = screen.getByRole('img', { name: leader.fullName })
+    const avatarElement = screen.getByTestId('avatar')
     expect(avatarElement).toBeInTheDocument()
 
     const titleElement = screen.getByText('Leader')
@@ -31,20 +33,21 @@ describe('MemberDetailsWithAvatar', () => {
     expect(nameElement).toBeInTheDocument()
   })
 
-  it('renders the component with skeleton loading state when leader is null', () => {
+  it('renders skeleton loading state when loading is true', () => {
     render(
       <MemberDetailsWithAvatar
-        leader={null as unknown as Member}
+        leader={leader as Member}
         title="Leader"
+        loading
         onClick={() => {}}
       />
     )
 
-    const skeletonCircleElement = screen.getByTestId('skeleton-circle')
-    expect(skeletonCircleElement).toBeInTheDocument()
+    const skeletonCircle = screen.getByTestId('skeleton-circle')
+    const skeletonText = screen.getByTestId('skeleton-text')
 
-    const skeletonTextElement = screen.getByTestId('skeleton-text')
-    expect(skeletonTextElement).toBeInTheDocument()
+    expect(skeletonCircle).toBeInTheDocument()
+    expect(skeletonText).toBeInTheDocument()
   })
 
   it('calls the onClick function when clicked', () => {
@@ -53,11 +56,12 @@ describe('MemberDetailsWithAvatar', () => {
       <MemberDetailsWithAvatar
         leader={leader}
         title="Leader"
+        loading={false}
         onClick={onClick}
       />
     )
 
-    const componentElement = screen.getByRole('button')
+    const componentElement = screen.getByTestId('container')
     fireEvent.click(componentElement)
 
     expect(onClick).toHaveBeenCalled()

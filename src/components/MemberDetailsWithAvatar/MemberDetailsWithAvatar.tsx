@@ -13,13 +13,14 @@ import { getCloudinaryPreset } from '@/utils'
 export type MemberDetailsWithAvatarPropsType = {
   leader: Member
   title: string
+  loading: boolean
   onClick: () => void
 }
 
 const MemberDetailsWithAvatar = (props: MemberDetailsWithAvatarPropsType) => {
-  const { leader, title, onClick } = props
+  const { leader, title, onClick, loading } = props
 
-  if (!leader) {
+  if (loading || !leader) {
     return (
       <HStack marginTop={4}>
         <Box marginRight={3}>
@@ -37,8 +38,9 @@ const MemberDetailsWithAvatar = (props: MemberDetailsWithAvatarPropsType) => {
   }
 
   return (
-    <HStack marginTop={4} onClick={onClick}>
+    <HStack marginTop={4} onClick={onClick} data-testid="container">
       <Avatar
+        data-testid="avatar"
         src={getCloudinaryPreset(leader?.pictureUrl ?? '')}
         name={leader.fullName}
         size="lg"
