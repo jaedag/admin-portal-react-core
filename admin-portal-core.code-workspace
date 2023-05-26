@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "../admin-portal-api-core"
+    },
+    {
+      "path": "../admin-portal-types"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "jest.disabledWorkspaceFolders": [
+      "admin-portal-api-core",
+      "admin-portal-types"
+    ]
+  }
+}
