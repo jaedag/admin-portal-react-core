@@ -17,6 +17,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import React from 'react'
+
 export interface ApolloError {
   name: string
   graphQLErrors: {
@@ -25,7 +26,7 @@ export interface ApolloError {
       line: number
       column: number
     }[]
-    path: string[]
+    path: (string | number)[]
     extensions: {
       code: string
       exception: {
@@ -34,11 +35,11 @@ export interface ApolloError {
       }
     }
   }[]
-  protocolErrors: any[]
-  clientErrors: any[]
+  protocolErrors: unknown[]
+  clientErrors: unknown[]
   networkError: {
     name: string
-    response: any
+    response: unknown
     statusCode: number
     result: {
       errors: {
