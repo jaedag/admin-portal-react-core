@@ -17,9 +17,32 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import React from 'react'
+export interface ApolloError {
+  name: string
+  graphQLErrors: any[]
+  protocolErrors: any[]
+  clientErrors: any[]
+  networkError: {
+    name: string
+    response: any
+    statusCode: number
+    result: {
+      errors: {
+        message: string
+        extensions: {
+          code: string
+          exception: {
+            stacktrace: string[]
+          }
+        }
+      }[]
+    }
+  }
+  message: string
+}
 
 interface ErrorScreenProps {
-  error: Error
+  error: ApolloError
   throwToSentry: () => void
 }
 
@@ -29,6 +52,16 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
   }
 
   const { isOpen, onClose, onOpen } = useDisclosure()
+
+  const { graphQLErrors, networkError } = error
+
+  // if (graphQLErrors)
+  //   graphQLErrors.forEach(({ message, locations, path }) =>
+  //     console.error(
+  //       `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+  //     )
+  //   )
+  // if (networkError) console.error(`[Network error]: ${networkError}`)
 
   return (
     <Center height="100vh">
@@ -40,7 +73,25 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
           </CardHeader>
           <CardBody padding={2}>
             <Text>{error.message}</Text>
-
+            <>
+              {graphQLErrors?.length &&
+                graphQLErrors.forEach(({ message, locations, path }) => (
+                  <Text>
+                    {`[GraphQL error]: Message: ${message}, Location: ${locations},
+                Path: ${path}`}
+                  </Text>
+                ))}
+            </>
+            {networkError && (
+              <>
+                {networkError.result.errors.map((error) => (
+                  <>
+                    <Text>{`code: ${error.extensions.code}`}</Text>
+                    <Text>{`[Network error]: ${error.message}`}</Text>
+                  </>
+                ))}
+              </>
+            )}
             <Modal
               isOpen={isOpen}
               onClose={onClose}
@@ -52,7 +103,7 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
                 <ModalHeader>{error.name}</ModalHeader>
                 <ModalBody>
                   <Text fontSize="small" color="blue.100">
-                    {error.stack}
+                    {error?.stack}
                   </Text>
                 </ModalBody>
                 <ModalFooter>
