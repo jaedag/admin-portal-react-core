@@ -110,7 +110,7 @@
     "@chakra-ui/react": "^2.5.5",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@jaedag/admin-portal-types": "^1.0.5",
+    "@jaedag/admin-portal-types": "^1.0.7",
     "formik": "^2.2.9",
     "framer-motion": "^10.12.2",
     "react": "^18.2.0",
