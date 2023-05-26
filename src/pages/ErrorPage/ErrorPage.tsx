@@ -96,7 +96,9 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
                         color="red.400"
                       >{`code: ${extensions.code}`}</Text>
                       <Text>{`Location: ${JSON.stringify(locations)} `}</Text>
-                      <Text color="teal.200">{`Path: ${path}`}</Text>
+                      <Text color="teal.200">{`Path: ${JSON.stringify(
+                        path
+                      )}`}</Text>
                       <Text>{`[GraphQL error]: Message: ${message}`}</Text>
                     </>
                   )
