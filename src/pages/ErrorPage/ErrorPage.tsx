@@ -19,7 +19,21 @@ import {
 import React from 'react'
 export interface ApolloError {
   name: string
-  graphQLErrors: any[]
+  graphQLErrors: {
+    message: string
+    locations: {
+      line: number
+      column: number
+    }[]
+    path: string[]
+    extensions: {
+      code: string
+      exception: {
+        message: string
+        stacktrace: string[]
+      }
+    }
+  }[]
   protocolErrors: any[]
   clientErrors: any[]
   networkError: {
@@ -37,7 +51,7 @@ export interface ApolloError {
         }
       }[]
     }
-  }
+  } | null
   message: string
 }
 
@@ -72,21 +86,32 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
             <Heading size="md">{error.name}</Heading>
           </CardHeader>
           <CardBody padding={2}>
-            <Text>{error.message}</Text>
-            <>
-              {graphQLErrors?.length &&
-                graphQLErrors.forEach(({ message, locations, path }) => (
-                  <Text>
-                    {`[GraphQL error]: Message: ${message}, Location: ${locations},
-                Path: ${path}`}
-                  </Text>
-                ))}
-            </>
-            {networkError && (
+            {graphQLErrors.length > 0 && (
+              <>
+                {graphQLErrors.map(
+                  ({ message, locations, path, extensions }) => (
+                    <>
+                      <Text
+                        fontWeight="bold"
+                        color="red.400"
+                      >{`code: ${extensions.code}`}</Text>
+                      <Text>{`Location: ${JSON.stringify(locations)} `}</Text>
+                      <Text color="teal.200">{`Path: ${path}`}</Text>
+                      <Text>{`[GraphQL error]: Message: ${message}`}</Text>
+                    </>
+                  )
+                )}
+              </>
+            )}
+
+            {!!networkError && (
               <>
                 {networkError.result.errors.map((error) => (
                   <>
-                    <Text>{`code: ${error.extensions.code}`}</Text>
+                    <Text
+                      fontWeight="bold"
+                      color="red.400"
+                    >{`code: ${error.extensions.code}`}</Text>
                     <Text>{`[Network error]: ${error.message}`}</Text>
                   </>
                 ))}
@@ -103,7 +128,7 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
                 <ModalHeader>{error.name}</ModalHeader>
                 <ModalBody>
                   <Text fontSize="small" color="blue.100">
-                    {error?.stack}
+                    {JSON.stringify(error)}
                   </Text>
                 </ModalBody>
                 <ModalFooter>
