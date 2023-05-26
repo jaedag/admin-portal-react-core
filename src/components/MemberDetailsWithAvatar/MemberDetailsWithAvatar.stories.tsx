@@ -30,7 +30,7 @@ const props = {
     nameWithTitle: 'Rev. John Doe',
   } as Member,
   title: 'Leader',
-  onClick: () => console.log('Button clicked'),
+  onClick: () => alert('Button clicked'),
 }
 
 const Template: StoryFn<MemberDetailsWithAvatarPropsType> = (
@@ -41,14 +41,13 @@ export const Default = Template.bind({})
 Default.args = {
   leader: props.leader,
   onClick: props.onClick,
+  loading: false,
   title: props.title,
 }
 
 export const Loading = Template.bind({})
 Loading.args = {
-  leader: null as unknown as Member,
+  leader: props.leader,
+  loading: true,
   title: 'Leader',
 }
-
-export const NoLeader = Template.bind({})
-NoLeader.args = {}
