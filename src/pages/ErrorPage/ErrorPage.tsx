@@ -92,7 +92,7 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
             <Heading size="md">{error?.name}</Heading>
           </CardHeader>
           <CardBody padding={2}>
-            {graphQLErrors.length > 0 && (
+            {graphQLErrors?.length > 0 && (
               <>
                 {graphQLErrors.map(
                   ({ message, locations, path, extensions }) => (

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import LoadingPage from '../LoadingPage/LoadingPage'
-import ErrorPage from '../ErrorPage/ErrorPage'
+import ErrorPage, { ApolloError } from '../ErrorPage/ErrorPage'
 
 type ApolloWrapperPropsType = {
   placeholder?: boolean
@@ -16,7 +16,7 @@ const ApolloWrapper = (props: ApolloWrapperPropsType) => {
   if (error) {
     return (
       <ErrorPage
-        error={new Error('This page contains an error')}
+        error={error as ApolloError}
         // eslint-disable-next-line no-console
         throwToSentry={() => console.error('This is the more verbose error')}
       />

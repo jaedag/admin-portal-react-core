@@ -13,7 +13,8 @@
   "settings": {
     "jest.disabledWorkspaceFolders": [
       "admin-portal-api-core",
-      "admin-portal-types"
+      "admin-portal-types",
+      "admin-portal-react-core"
     ]
   }
 }
