@@ -1,6 +1,6 @@
 {
   "name": "@jaedag/admin-portal-react-core",
-  "version": "1.0.66",
+  "version": "1.0.67",
   "description": "Utilities and components for admin-portal app with React TS and Chakra UI",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
