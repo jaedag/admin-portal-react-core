@@ -53,10 +53,8 @@ const TableFromArrays = ({
                 }
 
                 return (
-                  <Td {...style}>
-                    <Skeleton key={colNum} isLoaded={!loading}>
-                      {col}
-                    </Skeleton>
+                  <Td key={colNum} {...style}>
+                    <Skeleton isLoaded={!loading}>{col}</Skeleton>
                   </Td>
                 )
               })}
