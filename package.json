@@ -79,6 +79,7 @@
     "@types/jest": "^29.5.0",
     "@types/react": "^18.0.35",
     "babel-jest": "^29.5.0",
+    "chromatic": "^6.18.0",
     "concurrently": "^8.0.1",
     "eslint": "^8.38.0",
     "eslint-config-airbnb": "^19.0.4",

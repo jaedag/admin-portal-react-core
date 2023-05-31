@@ -5,6 +5,7 @@ import {
   FormControl,
   FormErrorMessage,
   Select as ChakraSelect,
+  SelectProps as ChakraSelectProps,
 } from '@chakra-ui/react'
 import { FormikComponentProps } from '../formik-types'
 
@@ -12,8 +13,9 @@ export interface FormikSelectProps extends FormikComponentProps {
   defaultOption?: string
   options: { key: string; value: string }[]
 }
+type SelectPropsType = FormikSelectProps & ChakraSelectProps
 
-const Select = (props: FormikSelectProps) => {
+const Select = (props: SelectPropsType) => {
   const { label, name, options, defaultOption, ...rest } = props
 
   return (

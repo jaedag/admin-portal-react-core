@@ -5,6 +5,7 @@ import {
   Input as ChakraInput,
   FormControl,
   FormErrorMessage,
+  InputProps as ChakraInputProps,
 } from '@chakra-ui/react'
 import { FormikComponentProps } from '../formik-types'
 
@@ -22,8 +23,9 @@ export interface InputProps extends FormikComponentProps {
     | 'text'
     | 'url'
 }
+type InputPropsType = InputProps & Omit<ChakraInputProps, 'type'>
 
-const Input = (props: InputProps) => {
+const Input = (props: InputPropsType) => {
   const { label, name, ...rest } = props
 
   return (
