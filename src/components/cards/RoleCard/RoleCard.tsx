@@ -29,7 +29,7 @@ const RoleCard: React.FC<RoleCardProps> = ({ number, role }: RoleCardProps) => {
     case ['ministry', 'ministries'].includes(role.toLowerCase()):
       color = 'linear-gradient(to bottom, #0b3c69, #0b2c53, #0b1b3a)'
       break
-    case role.toLowerCase().includes('gatheringservice'):
+    case role.toLowerCase().includes('campus'):
     case ['federal ministry', 'federal ministries'].includes(
       role.toLowerCase()
     ):

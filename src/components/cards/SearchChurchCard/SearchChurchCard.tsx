@@ -91,10 +91,7 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
     )
   }
 
-  if (
-    church.__typename === 'GatheringService' ||
-    church.__typename === 'Campus'
-  ) {
+  if (church.__typename === 'Campus' || church.__typename === 'Campus') {
     return (
       <AvatarBadge
         borderColor="green.200"
