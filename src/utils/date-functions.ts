@@ -107,6 +107,19 @@ export const getHumanReadableDate = (date: string, weekday?: true) => {
   })
 }
 
+export const getHumanReadableDateTime = (date: string) => {
+  if (!date) {
+    return
+  }
+  return new Date(date).toLocaleString('en-gb', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+  })
+}
+
 type MemberType = {
   dob: {
     date: string
