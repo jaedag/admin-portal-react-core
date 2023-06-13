@@ -85,7 +85,12 @@ const ImageUpload = (props: ImageUploadProps) => {
           {label}
         </FormLabel>
       ) : null}
-      <Container padding={0} width="350px" height="350px" marginBottom={4}>
+      <Container
+        padding={0}
+        maxWidth="350px"
+        maxHeight="350px"
+        marginBottom={4}
+      >
         <Center height="100%">
           {props.loading || loading ? (
             <BeatLoader data-testid="loading-spinner" color="grey" />
