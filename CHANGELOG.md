@@ -1,5 +1,11 @@
 #### 1.0.73 (2023-06-13)
 
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump ([902fdab0](https://github.com/jaedag/admin-portal-react-core/commit/902fdab047d7db53faa7a5b60e8210a15a9698d9))
+
+#### 1.0.73 (2023-06-13)
+
 #### 1.0.72 (2023-06-13)
 
 ##### Documentation Changes
