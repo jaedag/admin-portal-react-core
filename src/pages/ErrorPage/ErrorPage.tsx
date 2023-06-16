@@ -116,7 +116,7 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
 
             {!!networkError && (
               <>
-                {networkError.result.errors.map((error) => (
+                {networkError.result?.errors.map((error) => (
                   <>
                     <Text
                       fontWeight="bold"
