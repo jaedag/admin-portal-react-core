@@ -80,8 +80,9 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
       )
     )
 
-  // eslint-disable-next-line no-console
-  if (networkError) console.error(`[Network error]: ${networkError}`)
+  if (networkError)
+    // eslint-disable-next-line no-console
+    console.error(`[Network error]: ${JSON.stringify(networkError)}`)
 
   return (
     <Center height="100vh">
