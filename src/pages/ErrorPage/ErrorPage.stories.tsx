@@ -81,9 +81,33 @@ const mockGraphQLError: ApolloError = {
     'Int cannot represent non-integer value: { identity: { low: 79538, high: 0 }, labels: ["Bacenta", "Active", "Graduated"], properties: { code: [Integer], sprinterTopUp: 2, mobileNetwork: "MTN", levelName: "Bacen", momoNumber: "0594760323", target: [Integer], urvanTopUp: 1, outbound: false, name: "SOZO ", momoName: "jd", id: "14d1c9f9-3e7f-4c50-8256-4f25d3ad67ad", typename: "Bacenta", recipientCode: "RCP_6smo0yuc6nwdopm" } }',
 }
 
+const networkError502 = {
+  name: 'ApolloError',
+  graphQLErrors: [],
+  protocolErrors: [],
+  clientErrors: [],
+  networkError: {
+    name: 'ServerError',
+    response: {},
+    statusCode: 502,
+    result: {
+      errorMessage:
+        '2023-07-01T16:58:29.536Z c93754dd-2a97-4ab7-a5b7-330920779e9f Task timed out after 26.05 seconds',
+    },
+    message: 'Response not successful: Received status code 400',
+  },
+}
+
 export const NetworkError = () => (
   <ErrorPage
     error={mockNetworkError}
+    throwToSentry={() => console.error('This is the more verbose error')}
+  />
+)
+
+export const NetworkError502 = () => (
+  <ErrorPage
+    error={networkError502 as unknown as ApolloError}
     throwToSentry={() => console.error('This is the more verbose error')}
   />
 )

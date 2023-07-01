@@ -42,6 +42,7 @@ export interface ApolloError {
     response: unknown
     statusCode: number
     result: {
+      errorMessage?: string
       errors: {
         message: string
         extensions: {
@@ -117,17 +118,28 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
 
             {!!networkError && (
               <>
-                {networkError.result?.errors.map((error) => (
+                {networkError.result?.errors?.map((error) => (
                   <>
                     <Text
                       fontWeight="bold"
                       color="red.400"
                     >{`code: ${error.extensions.code}`}</Text>
                     <Text noOfLines={3}>
-                      {`[Network error]: ${error.message}`}
+                      {`[Network error]: ${error?.message}`}
                     </Text>
                   </>
                 ))}
+                {!networkError.result?.errors?.length && (
+                  <>
+                    <Text
+                      fontWeight="bold"
+                      color="red.400"
+                    >{`code: ${networkError?.statusCode}`}</Text>
+                    <Text noOfLines={3}>
+                      {`[Network error]: ${networkError?.result?.errorMessage}`}
+                    </Text>
+                  </>
+                )}
               </>
             )}
             <Modal
