@@ -23,6 +23,7 @@ WithFellowship.args = {
     id: '1',
     name: 'Greater Love',
     levelName: 'Fellowship',
+    vacationStatus: 'Active',
     __typename: 'Fellowship',
     leader: {
       id: '1',
@@ -41,6 +42,7 @@ WithBacenta.args = {
     id: '1',
     name: 'Greater Love',
     levelName: 'Bacenta',
+    vacationStatus: 'Active',
     __typename: 'Bacenta',
     leader: {
       id: '1',

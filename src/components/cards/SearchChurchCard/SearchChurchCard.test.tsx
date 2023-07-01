@@ -10,6 +10,7 @@ const church: Church = {
   __typename: 'Campus',
   name: 'Greater Love',
   levelName: 'Campus',
+  vacationStatus: 'Active',
   leader: {
     id: '1',
     firstName: 'Dan',
