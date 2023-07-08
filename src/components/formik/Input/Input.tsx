@@ -1,5 +1,4 @@
 import React from 'react'
-import { Field, FieldProps } from 'formik'
 import {
   FormLabel,
   Input as ChakraInput,
@@ -7,9 +6,10 @@ import {
   FormErrorMessage,
   InputProps as ChakraInputProps,
 } from '@chakra-ui/react'
-import { FormikComponentProps } from '../formik-types'
+import { ReactHookFormComponentProps } from '../formik-types'
+import { Controller } from 'react-hook-form'
 
-export interface InputProps extends FormikComponentProps {
+export interface InputProps extends ReactHookFormComponentProps {
   type?:
     | 'date'
     | 'time'
@@ -26,18 +26,20 @@ export interface InputProps extends FormikComponentProps {
 type InputPropsType = InputProps & Omit<ChakraInputProps, 'type'>
 
 const Input = (props: InputPropsType) => {
-  const { label, name, ...rest } = props
+  const { label, name, control, errors, ...rest } = props
 
   return (
-    <Field id={name} name={name}>
-      {({ field, form, meta }: FieldProps) => (
-        <FormControl isInvalid={!!meta.error} marginBottom={2}>
-          {label ? <FormLabel htmlFor={name}>{label}</FormLabel> : null}
-          <ChakraInput {...field} {...rest} />
-          <FormErrorMessage data-testid="error">{meta.error}</FormErrorMessage>
-        </FormControl>
-      )}
-    </Field>
+    <FormControl isInvalid={!!errors[name]}>
+      {!!label && <FormLabel htmlFor={name}>{label}</FormLabel>}
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => (
+          <ChakraInput id={name} placeholder={label} {...field} {...rest} />
+        )}
+      />
+      <FormErrorMessage>{errors[name]?.message as string}</FormErrorMessage>
+    </FormControl>
   )
 }
 

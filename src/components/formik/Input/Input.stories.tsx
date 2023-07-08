@@ -1,9 +1,10 @@
 import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
 import Input, { InputProps } from './Input'
-import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { FormikComponentProps } from '../formik-types'
+import { FieldErrors, useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 const initialValues = {
   inputTest: '',
@@ -16,7 +17,7 @@ const initialErrors = {
 const onSubmit = () => alert('Submitted!')
 
 export default {
-  title: 'Formik/Input',
+  title: 'ReactHookForm/Input',
   component: Input,
   argTypes: {
     label: { control: 'text' },
@@ -24,19 +25,25 @@ export default {
   },
 } as Meta
 
-const Template: StoryFn<FormikComponentProps> = (args) => (
-  <Formik
-    initialValues={initialValues}
-    validationSchema={Yup.object({
-      inputTest: Yup.string().required('This is a required field'),
-    })}
-    onSubmit={onSubmit}
-  >
-    {() => (
-      <Input {...args} name="inputTest" placeholder="Enter some value here" />
-    )}
-  </Formik>
-)
+const Template: StoryFn<FormikComponentProps> = (args) => {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<typeof initialValues>()
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        {...args}
+        name="inputTest"
+        placeholder="Enter some value here"
+        control={control}
+        errors={errors}
+      />
+    </form>
+  )
+}
 
 export const Default = Template.bind({})
 
@@ -45,16 +52,28 @@ WithLabel.args = {
   label: 'Test Input',
 }
 
-export const WithError = () => (
-  <Formik
-    initialValues={initialValues}
-    onSubmit={onSubmit}
-    isInitialValid={false}
-    initialErrors={initialErrors}
-  >
-    {(formik) => {
-      console.log('formik.errors', formik.errors)
-      return <Input name="inputTest" placeholder="Enter some value here" />
-    }}
-  </Formik>
-)
+export const WithError = () => {
+  const validationSchema = Yup.object({
+    inputTest: Yup.string().required(),
+  })
+
+  const { handleSubmit, control } = useForm<typeof initialValues>({
+    resolver: yupResolver(validationSchema),
+    reValidateMode: 'onBlur',
+  })
+
+  const errors = {
+    inputTest: { message: 'This is an error message' },
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        name="inputTest"
+        placeholder="Enter some value here"
+        control={control}
+        errors={errors as unknown as FieldErrors<typeof initialValues>}
+      />
+    </form>
+  )
+}

@@ -111,6 +111,7 @@
     "@chakra-ui/react": "^2.5.5",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@hookform/resolvers": "^3.1.1",
     "@jaedag/admin-portal-types": "^1.0.15",
     "formik": "^2.4.2",
     "framer-motion": "^10.12.2",
