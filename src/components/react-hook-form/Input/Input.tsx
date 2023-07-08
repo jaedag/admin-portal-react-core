@@ -6,7 +6,7 @@ import {
   FormErrorMessage,
   InputProps as ChakraInputProps,
 } from '@chakra-ui/react'
-import { ReactHookFormComponentProps } from '../formik-types'
+import { ReactHookFormComponentProps } from '../react-hook-form-types'
 import { Controller } from 'react-hook-form'
 
 export interface InputProps extends ReactHookFormComponentProps {

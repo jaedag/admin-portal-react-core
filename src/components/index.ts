@@ -1,6 +1,6 @@
 export * from './buttons'
 export * from './cards'
-export * from './formik'
+export * from './react-hook-form'
 
 // Exporting Individual Component
 export { default as Timeline, TimelineElement } from './Timeline'

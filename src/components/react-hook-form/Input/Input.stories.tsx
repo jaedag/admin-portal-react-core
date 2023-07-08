@@ -1,17 +1,13 @@
 import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
-import Input, { InputProps } from './Input'
+import Input from './Input'
 import * as Yup from 'yup'
-import { FormikComponentProps } from '../formik-types'
+import { FormikComponentProps } from '../react-hook-form-types'
 import { FieldErrors, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 const initialValues = {
   inputTest: '',
-}
-
-const initialErrors = {
-  inputTest: 'This is an error message',
 }
 
 const onSubmit = () => alert('Submitted!')

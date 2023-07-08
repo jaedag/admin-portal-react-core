@@ -7,7 +7,7 @@ import {
   Select as ChakraSelect,
   SelectProps as ChakraSelectProps,
 } from '@chakra-ui/react'
-import { FormikComponentProps } from '../formik-types'
+import { FormikComponentProps } from '../react-hook-form-types'
 
 export interface FormikSelectProps extends FormikComponentProps {
   defaultOption?: string

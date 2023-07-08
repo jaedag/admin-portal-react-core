@@ -1,4 +1,4 @@
-import { FormikSelectOptions } from '@/components/formik/formik-types'
+import { FormikSelectOptions } from '@/components/react-hook-form/react-hook-form-types'
 import { streamAccountType } from '@jaedag/admin-portal-types'
 
 export const GH_MOBILE_NETWORK_OPTIONS: FormikSelectOptions = [

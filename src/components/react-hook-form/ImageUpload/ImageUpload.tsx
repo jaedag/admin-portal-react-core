@@ -11,7 +11,7 @@ import {
   Input,
 } from '@chakra-ui/react'
 import { BeatLoader } from 'react-spinners'
-import { FormikComponentProps } from '../formik-types'
+import { FormikComponentProps } from '../react-hook-form-types'
 
 export interface ImageUploadProps extends FormikComponentProps {
   uploadPreset?: string

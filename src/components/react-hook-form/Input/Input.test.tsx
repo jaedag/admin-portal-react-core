@@ -2,7 +2,6 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Input from './Input'
 import '@testing-library/jest-dom'
-import { Formik } from 'formik'
 import { FieldErrors, useForm } from 'react-hook-form'
 
 const initialValues = {

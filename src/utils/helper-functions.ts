@@ -1,4 +1,4 @@
-import { FormikSelectOptions } from '@/components/formik/formik-types'
+import { FormikSelectOptions } from '@/components/react-hook-form/react-hook-form-types'
 
 export const GENDER_OPTIONS: FormikSelectOptions = [
   { key: 'Male', value: 'Male' },
