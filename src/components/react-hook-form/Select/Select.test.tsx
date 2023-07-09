@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Formik, Form } from 'formik'
 import Select, { RHFSelectProps } from './Select'
 import '@testing-library/jest-dom'
+import { useForm } from 'react-hook-form'
 
 const initialValues = {
   testSelect: '',
@@ -16,20 +16,26 @@ const options = [
   { key: 'Option 3', value: 'option-3' },
 ]
 
+const {
+  handleSubmit,
+  control,
+  formState: { errors },
+} = useForm<typeof initialValues>()
+
 const defaultProps: RHFSelectProps = {
   label: 'Select an option',
   name: 'testSelect',
   options,
+  control,
+  errors,
 }
 
 describe('Select component', () => {
   it('should render with label', () => {
     const { getByText } = render(
-      <Formik initialValues={initialValues} onSubmit={() => {}}>
-        <Form>
-          <Select {...defaultProps} />
-        </Form>
-      </Formik>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Select {...defaultProps} />
+      </form>
     )
 
     expect(getByText('Select an option')).toBeInTheDocument()
@@ -37,11 +43,9 @@ describe('Select component', () => {
 
   it('should render with options', () => {
     const { getByText } = render(
-      <Formik initialValues={initialValues} onSubmit={() => {}}>
-        <Form>
-          <Select {...defaultProps} />
-        </Form>
-      </Formik>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Select {...defaultProps} />
+      </form>
     )
 
     options.forEach((option) => {
@@ -51,11 +55,9 @@ describe('Select component', () => {
 
   it('should render with default option', () => {
     const { getByText } = render(
-      <Formik initialValues={initialValues} onSubmit={() => {}}>
-        <Form>
-          <Select {...defaultProps} />
-        </Form>
-      </Formik>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Select {...defaultProps} />
+      </form>
     )
 
     expect(getByText('Select an option')).toBeInTheDocument()
