@@ -1,5 +1,4 @@
 import React from 'react'
-import { Field, FieldProps } from 'formik'
 import {
   FormLabel,
   FormControl,
@@ -7,23 +6,35 @@ import {
   Select as ChakraSelect,
   SelectProps as ChakraSelectProps,
 } from '@chakra-ui/react'
-import { FormikComponentProps } from '../react-hook-form-types'
+import {
+  ReactHookFormComponentProps,
+  SelectOptions,
+} from '../react-hook-form-types'
+import { Controller } from 'react-hook-form'
 
-export interface FormikSelectProps extends FormikComponentProps {
+export interface RHFSelectProps extends ReactHookFormComponentProps {
   defaultOption?: string
-  options: { key: string; value: string }[]
+  options: SelectOptions
 }
-type SelectPropsType = FormikSelectProps & ChakraSelectProps
+type SelectPropsType = RHFSelectProps & ChakraSelectProps
 
 const Select = (props: SelectPropsType) => {
-  const { label, name, options, defaultOption, ...rest } = props
+  const { label, name, options, defaultOption, control, errors, ...rest } =
+    props
 
   return (
-    <Field id={name} name={name}>
-      {({ field, form, meta }: FieldProps) => (
-        <FormControl isInvalid={!!meta.error} marginBottom={2}>
-          {label ? <FormLabel htmlFor={name}>{label}</FormLabel> : null}
-          <ChakraSelect placeholder={defaultOption} {...field} {...rest}>
+    <FormControl isInvalid={!!errors[name]} marginBottom={2}>
+      {!!label && <FormLabel htmlFor={name}>{label}</FormLabel>}
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => (
+          <ChakraSelect
+            id={name}
+            placeholder={defaultOption}
+            {...field}
+            {...rest}
+          >
             {options?.map((option) => {
               return (
                 <option key={option.value} value={option.value}>
@@ -32,10 +43,10 @@ const Select = (props: SelectPropsType) => {
               )
             })}
           </ChakraSelect>
-          <FormErrorMessage>{meta.error}</FormErrorMessage>
-        </FormControl>
-      )}
-    </Field>
+        )}
+      />
+      <FormErrorMessage>{errors[name]?.message as string}</FormErrorMessage>
+    </FormControl>
   )
 }
 

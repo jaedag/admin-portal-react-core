@@ -2,9 +2,9 @@ import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
 import Input from './Input'
 import * as Yup from 'yup'
-import { FormikComponentProps } from '../react-hook-form-types'
 import { FieldErrors, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { ReactHookFormComponentProps } from '../react-hook-form-types'
 
 const initialValues = {
   inputTest: '',
@@ -21,7 +21,7 @@ export default {
   },
 } as Meta
 
-const Template: StoryFn<FormikComponentProps> = (args) => {
+const Template: StoryFn<ReactHookFormComponentProps> = (args) => {
   const {
     handleSubmit,
     control,
