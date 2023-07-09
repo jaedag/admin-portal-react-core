@@ -1,6 +1,5 @@
 import React from 'react'
 import { Story, Meta, StoryFn } from '@storybook/react'
-import { Formik, Form } from 'formik'
 import ImageUpload, { ImageUploadProps } from './ImageUpload'
 import { Center, Container } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'

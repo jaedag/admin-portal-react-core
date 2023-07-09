@@ -1,7 +1,6 @@
 import React from 'react'
 import { Meta, Story, StoryFn } from '@storybook/react'
 import Select, { RHFSelectProps } from './Select'
-import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { Button } from '@chakra-ui/react'
 import { FieldErrors, useForm } from 'react-hook-form'
