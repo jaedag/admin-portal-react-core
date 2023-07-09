@@ -3,9 +3,10 @@ import { Story, Meta, StoryFn } from '@storybook/react'
 import { Formik, Form } from 'formik'
 import ImageUpload, { ImageUploadProps } from './ImageUpload'
 import { Center, Container } from '@chakra-ui/react'
+import { useForm } from 'react-hook-form'
 
 export default {
-  title: 'Formik/ImageUpload',
+  title: 'ReactHookForm/ImageUpload',
   component: ImageUpload,
   args: {
     label: 'Image Upload',
@@ -15,19 +16,31 @@ export default {
       firstName: 'John',
       lastName: 'Doe',
     },
-    setFieldValue: () => {},
+    setValue: () => {},
   },
 } as Meta
 
-const Template: StoryFn<ImageUploadProps> = (args) => (
-  <Formik initialValues={{}} onSubmit={() => {}}>
-    <Form>
+const initialValues = {
+  image: '',
+}
+
+const onSubmit = () => alert('Submitted!')
+
+const Template: StoryFn<ImageUploadProps> = (args) => {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<typeof initialValues>()
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
-        <ImageUpload {...args} />
+        <ImageUpload {...args} name="image" control={control} errors={errors} />
       </Container>
-    </Form>
-  </Formik>
-)
+    </form>
+  )
+}
 
 export const Default = Template.bind({})
 Default.args = {}

@@ -34,9 +34,7 @@ const Input = (props: InputPropsType) => {
       <Controller
         name={name}
         control={control}
-        render={({ field }) => (
-          <ChakraInput id={name} placeholder={label} {...field} {...rest} />
-        )}
+        render={({ field }) => <ChakraInput id={name} {...field} {...rest} />}
       />
       <FormErrorMessage>{errors[name]?.message as string}</FormErrorMessage>
     </FormControl>

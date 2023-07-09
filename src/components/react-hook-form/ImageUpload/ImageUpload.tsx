@@ -1,5 +1,4 @@
 import React, { useState, useRef, ChangeEventHandler } from 'react'
-import { ErrorMessage } from 'formik'
 import {
   Button,
   Center,
@@ -11,10 +10,11 @@ import {
   Input,
 } from '@chakra-ui/react'
 import { BeatLoader } from 'react-spinners'
-import { FormikComponentProps } from '../react-hook-form-types'
+import { ReactHookFormComponentProps } from '../react-hook-form-types'
+import { Controller } from 'react-hook-form'
 
-export interface ImageUploadProps extends FormikComponentProps {
-  uploadPreset?: string
+export interface ImageUploadProps extends ReactHookFormComponentProps {
+  uploadPreset: string
   tags?: 'facial-recognition'
   initialValue?: string
   loading?: boolean
@@ -23,7 +23,7 @@ export interface ImageUploadProps extends FormikComponentProps {
     firstName: string
     lastName: string
   }
-  setFieldValue: (field: string, value: unknown) => void
+  setValue: (field: string, value: unknown) => void
 }
 
 const ImageUpload = (props: ImageUploadProps) => {
@@ -31,17 +31,20 @@ const ImageUpload = (props: ImageUploadProps) => {
     label,
     name,
     initialValue,
-    setFieldValue,
     uploadPreset,
     placeholder,
     tags,
     user,
+    setValue,
+    control,
+    errors,
     ...rest
   } = props
   const fileInputRef = useRef<HTMLInputElement>(null)
   const handleButtonClick = () => {
     fileInputRef.current?.click()
   }
+
   const [loading, setLoading] = useState(false)
   const [image, setImage] = useState('')
 
@@ -74,7 +77,7 @@ const ImageUpload = (props: ImageUploadProps) => {
 
     setImage(file.secure_url)
 
-    setFieldValue(`${name}`, file.secure_url)
+    setValue(name, file.secure_url)
     setLoading(false)
   }
 
@@ -85,12 +88,7 @@ const ImageUpload = (props: ImageUploadProps) => {
           {label}
         </FormLabel>
       ) : null}
-      <Container
-        padding={0}
-        maxWidth="350px"
-        maxHeight="350px"
-        marginBottom={4}
-      >
+      <Container padding={0} width="350px" height="350px" marginBottom={4}>
         <Center height="100%">
           {props.loading || loading ? (
             <BeatLoader data-testid="loading-spinner" color="grey" />
@@ -105,25 +103,35 @@ const ImageUpload = (props: ImageUploadProps) => {
         </Center>
       </Container>
 
-      <Container padding={0} maxWidth="350px">
-        <Input
-          id={name}
+      <Container padding={0} width="350px" height="350px" marginBottom={4}>
+        <Controller
           name={name}
-          display="none"
-          ref={fileInputRef}
-          type="file"
-          accept="image/png, image/webp, image/jpg, image/jpeg"
-          onChange={uploadImage}
-          {...rest}
+          control={control}
+          render={({ field }) => (
+            <>
+              <Input
+                id={name}
+                display="none"
+                type="file"
+                accept="image/png, image/webp, image/jpg, image/jpeg"
+                {...field}
+                {...rest}
+                onChange={uploadImage}
+                ref={fileInputRef}
+              />
+              <Button
+                colorScheme="blue"
+                width="100%"
+                onClick={handleButtonClick}
+              >
+                Upload Image
+              </Button>
+            </>
+          )}
         />
-        <Button colorScheme="blue" width="100%" onClick={handleButtonClick}>
-          Upload Image
-        </Button>
       </Container>
-      {!!props.error && <FormErrorMessage>{props.error}</FormErrorMessage>}
-      {!props.error ?? (
-        <ErrorMessage name={name} component={FormErrorMessage} />
-      )}
+
+      <FormErrorMessage>{errors[name]?.message as string}</FormErrorMessage>
     </FormControl>
   )
 }
