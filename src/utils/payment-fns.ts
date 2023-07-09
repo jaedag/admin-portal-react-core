@@ -1,7 +1,7 @@
-import { FormikSelectOptions } from '@/components/react-hook-form/react-hook-form-types'
+import { SelectOptions } from '@/components/react-hook-form/react-hook-form-types'
 import { streamAccountType } from '@jaedag/admin-portal-types'
 
-export const GH_MOBILE_NETWORK_OPTIONS: FormikSelectOptions = [
+export const GH_MOBILE_NETWORK_OPTIONS: SelectOptions = [
   { key: 'MTN', value: 'MTN' },
   { key: 'Vodafone', value: 'Vodafone' },
   { key: 'AirtelTigo', value: 'AirtelTigo' },

@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Formik, Form } from 'formik'
-import Select, { FormikSelectProps } from './Select'
+import Select, { RHFSelectProps } from './Select'
 import '@testing-library/jest-dom'
 
 const initialValues = {
@@ -16,7 +16,7 @@ const options = [
   { key: 'Option 3', value: 'option-3' },
 ]
 
-const defaultProps: FormikSelectProps = {
+const defaultProps: RHFSelectProps = {
   label: 'Select an option',
   name: 'testSelect',
   options,
