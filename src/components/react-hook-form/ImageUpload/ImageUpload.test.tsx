@@ -21,6 +21,7 @@ describe('ImageUpload', () => {
     name: 'image',
     label: 'Upload an image',
     uploadPreset: 'developer-tests',
+    cloudinaryAccount: 'church-insights',
     control: { control } as unknown as Control<any>,
     errors: { errors } as FieldErrors<any>,
     user: { id: '1', firstName: 'John', lastName: 'Doe' },

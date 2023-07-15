@@ -15,6 +15,7 @@ export default {
       firstName: 'John',
       lastName: 'Doe',
     },
+    cloudinaryAccount: 'church-insights',
     setValue: () => {},
   },
 } as Meta
