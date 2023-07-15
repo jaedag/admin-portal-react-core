@@ -18,6 +18,7 @@ export interface ImageUploadProps extends ReactHookFormComponentProps {
   tags?: 'facial-recognition'
   initialValue?: string
   loading?: boolean
+  cloudinaryAccount: 'church-insights' | 'firstlovecenter'
   user: {
     id: string
     firstName: string
@@ -30,6 +31,7 @@ const ImageUpload = (props: ImageUploadProps) => {
   const {
     label,
     name,
+    cloudinaryAccount,
     initialValue,
     uploadPreset,
     placeholder,
@@ -52,7 +54,7 @@ const ImageUpload = (props: ImageUploadProps) => {
     const files = e.target.files ?? []
     const date = new Date().toISOString().slice(0, 10)
     const username = `${user.firstName.toLowerCase()}-${user.lastName.toLowerCase()}`
-    let filename = `church-insights/${username}-${user.id}/${date}_${files[0].name}`
+    let filename = `${username}-${user.id}/${date}_${files[0].name}`
     filename = filename.replace(/\s/g, '-')
     filename = filename.replace(/~/g, '-')
     filename = filename.replace(/[^a-zA-Z0-9-_]/g, '')
@@ -67,7 +69,7 @@ const ImageUpload = (props: ImageUploadProps) => {
     setLoading(true)
 
     const res = await fetch(
-      'https://api.cloudinary.com/v1_1/firstlovecenter/image/upload',
+      `https://api.cloudinary.com/v1_1/${cloudinaryAccount}/image/upload`,
       {
         method: 'POST',
         body: data,
