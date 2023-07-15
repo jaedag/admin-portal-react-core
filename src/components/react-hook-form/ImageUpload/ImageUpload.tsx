@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { BeatLoader } from 'react-spinners'
 import { ReactHookFormComponentProps } from '../react-hook-form-types'
-import { Controller, UseFormSetValue } from 'react-hook-form'
+import { UseFormSetValue } from 'react-hook-form'
 
 export interface ImageUploadProps extends ReactHookFormComponentProps {
   uploadPreset: string
@@ -91,6 +91,7 @@ const ImageUpload = (props: ImageUploadProps) => {
           {label}
         </FormLabel>
       ) : null}
+
       <Container padding={0} width="350px" height="350px" marginBottom={4}>
         <Center height="100%">
           {props.loading || loading ? (
@@ -106,35 +107,24 @@ const ImageUpload = (props: ImageUploadProps) => {
         </Center>
       </Container>
 
-      <Container padding={0} width="350px" height="350px" marginBottom={4}>
-        <Controller
-          name={name}
-          control={control}
-          render={({ field }) => (
-            <>
-              <Input
-                id={name}
-                display="none"
-                type="file"
-                accept="image/png, image/webp, image/jpg, image/jpeg"
-                {...field}
-                {...rest}
-                onChange={uploadImage}
-                ref={fileInputRef}
-              />
-              <Button
-                colorScheme="blue"
-                width="100%"
-                onClick={handleButtonClick}
-              >
-                Upload Image
-              </Button>
-            </>
-          )}
+      <Container padding={0} marginBottom={4}>
+        <Input
+          id={name}
+          display="none"
+          type="file"
+          accept="image/png, image/webp, image/jpg, image/jpeg"
+          {...rest}
+          onChange={uploadImage}
+          ref={fileInputRef}
         />
+        <Button colorScheme="blue" width="100%" onClick={handleButtonClick}>
+          Upload Image
+        </Button>
       </Container>
 
-      <FormErrorMessage>{errors[name]?.message as string}</FormErrorMessage>
+      {errors[name] && (
+        <FormErrorMessage>{errors[name]?.message as string}</FormErrorMessage>
+      )}
     </FormControl>
   )
 }
