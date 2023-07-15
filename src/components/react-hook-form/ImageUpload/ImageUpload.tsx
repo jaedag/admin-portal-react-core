@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { BeatLoader } from 'react-spinners'
 import { ReactHookFormComponentProps } from '../react-hook-form-types'
-import { Controller } from 'react-hook-form'
+import { Controller, UseFormSetValue } from 'react-hook-form'
 
 export interface ImageUploadProps extends ReactHookFormComponentProps {
   uploadPreset: string
@@ -24,7 +24,8 @@ export interface ImageUploadProps extends ReactHookFormComponentProps {
     firstName: string
     lastName: string
   }
-  setValue: (field: string, value: unknown) => void
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setValue: UseFormSetValue<any>
 }
 
 const ImageUpload = (props: ImageUploadProps) => {
