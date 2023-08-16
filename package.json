@@ -10,13 +10,15 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "rollup": "rollup -c",
-    "test": "jest",
+    "test": "jest --watch",
     "release:major": "node scripts/release.js major",
     "release:minor": "node scripts/release.js minor",
     "release:patch": "node scripts/release.js patch",
     "release:test": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "publish": "npx chromatic --project-token=chpt_e25523056d15284",
     "build-storybook": "storybook build"
   },
   "browser": {
