@@ -57,8 +57,15 @@ export interface ApolloError {
   message: string
 }
 
+export interface FirebaseError {
+  code: string
+  message: string
+  name: string
+  stack: string
+}
+
 interface ErrorScreenProps {
-  error: ApolloError | Error | undefined
+  error: ApolloError | Error | undefined | FirebaseError
   throwToSentry: () => void
 }
 
