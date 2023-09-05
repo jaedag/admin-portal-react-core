@@ -4,11 +4,12 @@ import {
   Switch as ChakraSwitch,
   FormControl,
   FormErrorMessage,
+  SwitchProps as ChakraSwitchProps,
 } from '@chakra-ui/react'
 import { ReactHookFormComponentProps } from '../react-hook-form-types'
 import { Controller } from 'react-hook-form'
 
-type SwitchPropsType = ReactHookFormComponentProps
+type SwitchPropsType = ReactHookFormComponentProps & ChakraSwitchProps
 
 const Switch = (props: SwitchPropsType) => {
   const { label, name, control, errors, ...rest } = props

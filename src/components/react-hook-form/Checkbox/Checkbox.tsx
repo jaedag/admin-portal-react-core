@@ -4,11 +4,12 @@ import {
   Checkbox as ChakraCheckbox,
   FormControl,
   FormErrorMessage,
+  CheckboxProps as ChakraCheckboxProps,
 } from '@chakra-ui/react'
 import { ReactHookFormComponentProps } from '../react-hook-form-types'
 import { Controller } from 'react-hook-form'
 
-type CheckboxPropsType = ReactHookFormComponentProps
+type CheckboxPropsType = ReactHookFormComponentProps & ChakraCheckboxProps
 
 const Checkbox = (props: CheckboxPropsType) => {
   const { label, name, control, errors, ...rest } = props
