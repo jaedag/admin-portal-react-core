@@ -1,20 +1,20 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import Checkbox from './Textarea'
+import Textarea from './Textarea'
 import '@testing-library/jest-dom'
 import { FieldErrors, useForm } from 'react-hook-form'
 
 const initialValues = {
-  checkboxTest: '',
+  textareaTest: '',
 }
 
 const initialErrors = {
-  checkboxTest: 'Initial Checkbox',
+  textareaTest: 'Initial Textarea',
 }
 
 const onSubmit = () => alert('Submitted!')
 
-describe('Checkbox Component', () => {
+describe('Textarea Component', () => {
   const {
     handleSubmit,
     control,
@@ -24,8 +24,8 @@ describe('Checkbox Component', () => {
   it('renders without crashing', () => {
     render(
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Checkbox
-          name="checkboxTest"
+        <Textarea
+          name="textareaTest"
           placeholder="Enter some value here"
           control={control}
           errors={errors}
@@ -37,8 +37,8 @@ describe('Checkbox Component', () => {
   it('renders a label when passed a label prop', () => {
     render(
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Checkbox
-          name="checkboxTest"
+        <Textarea
+          name="textareaTest"
           label="Test Label"
           control={control}
           errors={errors}
@@ -49,44 +49,44 @@ describe('Checkbox Component', () => {
     expect(label).toBeInTheDocument()
   })
 
-  it('renders an checkbox field', () => {
+  it('renders an textarea field', () => {
     render(
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Checkbox
-          name="checkboxTest"
+        <Textarea
+          name="textareaTest"
           placeholder="Enter some value here"
           control={control}
           errors={errors}
         />
       </form>
     )
-    const checkbox = screen.getByRole('textbox')
-    expect(checkbox).toBeInTheDocument()
+    const textarea = screen.getByRole('textbox')
+    expect(textarea).toBeInTheDocument()
   })
 
   const customErrors = {
-    checkboxTest: { message: 'This is an error message' },
+    textareaTest: { message: 'This is an error message' },
   }
 
   it('displays error message when there is a form validation error', () => {
     render(
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Checkbox
-          name="checkboxTest"
+        <Textarea
+          name="textareaTest"
           placeholder="Enter some value here"
           control={control}
           errors={customErrors as unknown as FieldErrors<typeof initialValues>}
         />
       </form>
     )
-    const errorMessage = screen.getByText(initialErrors.checkboxTest)
+    const errorMessage = screen.getByText(initialErrors.textareaTest)
     expect(errorMessage).toBeInTheDocument()
   })
 
   it('does not display error message when there is no form validation error', () => {
     render(
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Checkbox name="checkboxTest" control={control} errors={errors} />
+        <Textarea name="textareaTest" control={control} errors={errors} />
       </form>
     )
     const errorMessage = screen.queryByText(/.+/)
