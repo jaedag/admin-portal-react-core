@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ButtonProps, Card, Text, VStack } from '@chakra-ui/react'
+import { Button, ButtonProps, Card, Text } from '@chakra-ui/react'
 import { capitalise } from '@/utils'
 
 interface NumberButtonPropsInterface {
@@ -7,7 +7,6 @@ interface NumberButtonPropsInterface {
   color?: string
   title: string
   onClick: () => void
-  subtitle?: string
 }
 
 type NumberButtonProps = NumberButtonPropsInterface & ButtonProps
@@ -16,7 +15,6 @@ const NumberButton: React.FC<NumberButtonProps> = ({
   number,
   color,
   title,
-  subtitle,
   onClick,
   ...rest
 }) => (
@@ -37,19 +35,10 @@ const NumberButton: React.FC<NumberButtonProps> = ({
     }
     {...rest}
   >
-    <VStack align="flex-start">
-      <Text fontSize="1xl" marginBottom={0} color={color}>
-        {capitalise(title)}
-      </Text>
-      <Text fontSize="xs" fontWeight="normal">
-        {subtitle}
-      </Text>
-    </VStack>
+    <Text marginBottom={0} color={color}>
+      {capitalise(title)}
+    </Text>
   </Button>
 )
-
-NumberButton.defaultProps = {
-  subtitle: '',
-}
 
 export default NumberButton

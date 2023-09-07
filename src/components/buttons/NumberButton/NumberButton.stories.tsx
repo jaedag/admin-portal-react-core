@@ -40,7 +40,6 @@ export const WithSubtitle = () => (
     number={400}
     color="green.200"
     title="Churches"
-    subtitle="Button subtitle"
     onClick={() => console.log('Clicked')}
   />
 )
