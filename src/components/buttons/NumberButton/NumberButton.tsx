@@ -1,14 +1,16 @@
 import React from 'react'
-import { Button, Card, Text, VStack } from '@chakra-ui/react'
+import { Button, ButtonProps, Card, Text, VStack } from '@chakra-ui/react'
 import { capitalise } from '@/utils'
 
-interface NumberButtonProps {
+interface NumberButtonPropsInterface {
   number?: number
-  color: string
+  color?: string
   title: string
   onClick: () => void
   subtitle?: string
 }
+
+type NumberButtonProps = NumberButtonPropsInterface & ButtonProps
 
 const NumberButton: React.FC<NumberButtonProps> = ({
   number,
@@ -16,6 +18,7 @@ const NumberButton: React.FC<NumberButtonProps> = ({
   title,
   subtitle,
   onClick,
+  ...rest
 }) => (
   <Button
     width="100%"
@@ -28,10 +31,11 @@ const NumberButton: React.FC<NumberButtonProps> = ({
     onClick={onClick}
     overflow="clip"
     leftIcon={
-      <Card padding={2} opacity={0.8} boxShadow="sm">
-        <Text>{number ?? 0}</Text>
+      <Card padding={2} opacity={0.8} boxShadow="sm" color={color}>
+        {number ?? 0}
       </Card>
     }
+    {...rest}
   >
     <VStack align="flex-start">
       <Text fontSize="1xl" marginBottom={0} color={color}>

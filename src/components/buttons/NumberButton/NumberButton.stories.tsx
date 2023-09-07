@@ -44,3 +44,12 @@ export const WithSubtitle = () => (
     onClick={() => console.log('Clicked')}
   />
 )
+
+export const WithStyleProps = () => (
+  <NumberButton
+    number={2}
+    colorScheme="red"
+    title="Members"
+    onClick={() => console.log('Clicked')}
+  />
+)
