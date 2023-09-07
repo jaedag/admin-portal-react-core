@@ -3,7 +3,7 @@ import { Button, Card, Text, VStack } from '@chakra-ui/react'
 import { capitalise } from '@/utils'
 
 interface NumberButtonProps {
-  number: number
+  number?: number
   color: string
   title: string
   onClick: () => void
@@ -29,7 +29,7 @@ const NumberButton: React.FC<NumberButtonProps> = ({
     overflow="clip"
     leftIcon={
       <Card padding={2} opacity={0.8} boxShadow="sm">
-        <Text>{number.toLocaleString()}</Text>
+        <Text>{number ?? 0}</Text>
       </Card>
     }
   >

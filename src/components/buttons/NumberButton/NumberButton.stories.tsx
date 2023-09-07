@@ -17,9 +17,18 @@ export const Default = () => (
   />
 )
 
-export const LongNumber = () => (
+export const WithLongNumber = () => (
   <NumberButton
     number={40000}
+    color="blue.200"
+    title="Members"
+    onClick={() => console.log('Clicked')}
+  />
+)
+
+export const WithUndefinedNumber = () => (
+  <NumberButton
+    number={undefined}
     color="blue.200"
     title="Members"
     onClick={() => console.log('Clicked')}
