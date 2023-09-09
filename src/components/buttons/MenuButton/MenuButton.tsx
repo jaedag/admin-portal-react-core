@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon, Text, VStack } from '@chakra-ui/react'
+import { Box, Button, Icon, Text } from '@chakra-ui/react'
 import { IconType } from 'react-icons'
 import { capitalise } from '@/utils'
 
@@ -29,23 +29,25 @@ const MenuButton: React.FC<MenuButtonProps> = ({
       justifyContent="flex-start"
       onClick={onClick}
       overflow="clip"
+      leftIcon={
+        <Icon
+          as={icon}
+          w={10}
+          h={10}
+          color={color}
+          margin="0px 20px 0 0px"
+          verticalAlign="middle"
+        />
+      }
     >
-      <Icon
-        as={icon}
-        w={10}
-        h={10}
-        color={color}
-        margin="0px 20px 0 0px"
-        verticalAlign="middle"
-      />
-      <VStack align="flex-start">
+      <Box>
         <Text fontSize="1xl" marginBottom={0} color={color}>
           {capitalise(title)}
         </Text>
         <Text fontSize="xs" fontWeight="normal">
           {subtitle}
         </Text>
-      </VStack>
+      </Box>
     </Button>
   )
 }

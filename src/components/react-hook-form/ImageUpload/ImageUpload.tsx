@@ -117,7 +117,7 @@ const ImageUpload = (props: ImageUploadProps) => {
           onChange={uploadImage}
           ref={fileInputRef}
         />
-        <Button colorScheme="blue" width="100%" onClick={handleButtonClick}>
+        <Button colorScheme="blue" onClick={handleButtonClick}>
           Upload Image
         </Button>
       </Container>
