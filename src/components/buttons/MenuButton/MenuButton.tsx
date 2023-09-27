@@ -1,15 +1,15 @@
 import React from 'react'
-import { Box, Button, Icon, Text } from '@chakra-ui/react'
+import { Box, Button, Icon, Text, ButtonProps } from '@chakra-ui/react'
 import { IconType } from 'react-icons'
 import { capitalise } from '@/utils'
 
-interface MenuButtonProps {
+type MenuButtonProps = {
   icon: IconType
   color: string
   title: string
   onClick: () => void
   subtitle?: string
-}
+} & ButtonProps
 
 const MenuButton: React.FC<MenuButtonProps> = ({
   icon,
