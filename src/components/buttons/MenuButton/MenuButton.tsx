@@ -17,6 +17,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   title,
   subtitle,
   onClick,
+  ...rest
 }) => {
   return (
     <Button
@@ -39,6 +40,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
           verticalAlign="middle"
         />
       }
+      {...rest}
     >
       <Box>
         <Text fontSize="1xl" marginBottom={0} color={color}>
