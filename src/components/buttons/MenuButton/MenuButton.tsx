@@ -48,7 +48,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
         <Text fontSize="1xl" marginBottom={0} color={color}>
           {capitalise(title)}
         </Text>
-        <Text fontSize="xs" fontWeight="normal" color={subColor ?? color}>
+        <Text fontSize="xs" fontWeight="normal" color={subColor}>
           {subtitle}
         </Text>
       </Box>
