@@ -6,7 +6,7 @@ import { capitalise } from '@/utils'
 type MenuButtonProps = {
   icon: IconType
   color: string
-  subColor: string
+  subColor?: string
   title: string
   onClick: () => void
   subtitle?: string
