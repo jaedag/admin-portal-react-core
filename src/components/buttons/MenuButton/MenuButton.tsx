@@ -6,6 +6,7 @@ import { capitalise } from '@/utils'
 type MenuButtonProps = {
   icon: IconType
   color: string
+  subColor: string
   title: string
   onClick: () => void
   subtitle?: string
@@ -14,6 +15,7 @@ type MenuButtonProps = {
 const MenuButton: React.FC<MenuButtonProps> = ({
   icon,
   color,
+  subColor,
   title,
   subtitle,
   onClick,
@@ -46,7 +48,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
         <Text fontSize="1xl" marginBottom={0} color={color}>
           {capitalise(title)}
         </Text>
-        <Text fontSize="xs" fontWeight="normal">
+        <Text fontSize="xs" fontWeight="normal" color={subColor ?? color}>
           {subtitle}
         </Text>
       </Box>
