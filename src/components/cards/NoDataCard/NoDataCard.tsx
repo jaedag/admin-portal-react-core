@@ -4,10 +4,10 @@ import React from 'react'
 const NoDataCard = ({
   children,
   ...rest
-}: { children: React.ReactNode } & CardProps) => {
+}: { children?: React.ReactNode } & CardProps) => {
   return (
     <Card textAlign="center" {...rest}>
-      <CardBody>{children}</CardBody>
+      <CardBody>{children ?? 'There is no data to show'}</CardBody>
     </Card>
   )
 }

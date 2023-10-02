@@ -7,7 +7,7 @@ export default {
   component: NoDataCard,
 } as Meta
 
-export const Default = () => <NoDataCard>There is no data here</NoDataCard>
+export const Default = () => <NoDataCard />
 
 export const WithChildren = () => (
   <NoDataCard>
