@@ -2,7 +2,7 @@ export * from './buttons'
 export * from './cards'
 export * from './react-hook-form'
 
-// Exporting Individual Component
+// Exporting Individual Components
 export { default as Timeline, TimelineElement } from './Timeline'
 export { default as CurrencySpan, CurrencySpanProps } from './CurrencySpan'
 export { default as MemberDetailsWithAvatar } from './MemberDetailsWithAvatar'

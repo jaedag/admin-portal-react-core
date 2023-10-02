@@ -11,7 +11,6 @@ describe('NumberButton', () => {
         number={98}
         color="blue"
         title="Profile"
-        subtitle="View your profile"
         onClick={() => {}}
       />
     )
