@@ -1,4 +1,5 @@
 export { default as RoleCard } from './RoleCard'
+export { default as NoDataCard } from './NoDataCard'
 export { default as ChurchDetailCard } from './ChurchDetailCard'
 export { default as MemberDetailCard } from './MemberDetailCard'
 
