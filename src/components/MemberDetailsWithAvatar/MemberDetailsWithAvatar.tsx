@@ -12,7 +12,7 @@ import { getCloudinaryPreset } from '@/utils'
 
 export type MemberDetailsWithAvatarPropsType = {
   leader: Member
-  title: string
+  title?: string
   loading: boolean
   onClick: () => void
 }
