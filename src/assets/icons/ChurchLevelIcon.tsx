@@ -11,7 +11,7 @@ import {
   HubIcon,
   MinistryIcon,
   StreamIcon,
-} from '.'
+} from './'
 import { BsPeopleFill } from 'react-icons/bs'
 import { IconBaseProps } from 'react-icons'
 
