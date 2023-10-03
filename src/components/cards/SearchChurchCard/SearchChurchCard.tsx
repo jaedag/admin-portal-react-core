@@ -10,15 +10,13 @@ import {
 } from '@chakra-ui/react'
 import { getCloudinaryPreset } from '@/utils'
 import { Church } from '@jaedag/admin-portal-types'
-import { BsPeopleFill } from 'react-icons/bs'
-import {
-  FaBus,
-  FaEye,
-  FaHouseUser,
-  FaPlaceOfWorship,
-  FaSynagogue,
-  FaUsers,
-} from 'react-icons/fa'
+import FellowshipIcon from '@/components/icons/FellowshipIcon'
+import BacentaIcon from '@/components/icons/BacentaIcon'
+import ConstituencyIcon from '@/components/icons/ConstituencyIcon'
+import CouncilIcon from '@/components/icons/CouncilIcon'
+import StreamIcon from '@/components/icons/StreamIcon'
+import CamupusIcon from '@/components/icons/CampusIcon'
+import OversightIcon from '@/components/icons/OversightIcon'
 
 export interface SearchChurchCardPropsInterface {
   church: Church
@@ -34,7 +32,7 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
         boxSize="1.25em"
         padding={1}
       >
-        <BsPeopleFill color="white" />
+        <FellowshipIcon />
       </AvatarBadge>
     )
   }
@@ -47,7 +45,7 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
         boxSize="1.25em"
         padding={1}
       >
-        <FaBus color="white" />
+        <BacentaIcon />
       </AvatarBadge>
     )
   }
@@ -60,7 +58,7 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
         boxSize="1.25em"
         padding={1}
       >
-        <FaHouseUser color="white" />
+        <ConstituencyIcon />
       </AvatarBadge>
     )
   }
@@ -73,7 +71,7 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
         boxSize="1.25em"
         padding={1}
       >
-        <FaUsers color="white" />
+        <CouncilIcon />
       </AvatarBadge>
     )
   }
@@ -86,7 +84,7 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
         boxSize="1.25em"
         padding={1}
       >
-        <FaSynagogue color="white" />
+        <StreamIcon />
       </AvatarBadge>
     )
   }
@@ -99,7 +97,7 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
         boxSize="1.25em"
         padding={1}
       >
-        <FaPlaceOfWorship color="white" />
+        <CamupusIcon />
       </AvatarBadge>
     )
   }
@@ -112,7 +110,7 @@ const SearchIconBadge = ({ church }: { church: Church }) => {
         boxSize="1.25em"
         padding={1}
       >
-        <FaEye color="white" />
+        <OversightIcon />
       </AvatarBadge>
     )
   }

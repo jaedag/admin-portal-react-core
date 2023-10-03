@@ -1,10 +1,20 @@
 import React from 'react'
-import { Card, CardBody, CardHeader, Skeleton, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Flex,
+  Skeleton,
+  Spacer,
+  Text,
+} from '@chakra-ui/react'
 
 export type MemberDetailCardPropsType = {
   heading: string
   loading?: boolean
   detail?: string
+  trailingIcon?: React.ReactNode
   onClick?: () => void
 }
 
@@ -22,9 +32,14 @@ const MemberDetailCard = (props: MemberDetailCardPropsType) => {
       </CardHeader>
       <CardBody padding={2}>
         <Skeleton isLoaded={!loading} height={6} data-testid="skeleton-loader">
-          <Text as="span" fontSize="xl" fontWeight="bold">
-            {props.detail}
-          </Text>
+          <Flex>
+            <Text as="span" fontSize="xl" fontWeight="bold">
+              {props.detail}
+            </Text>
+            <Spacer />
+
+            <Box>{props.trailingIcon}</Box>
+          </Flex>
         </Skeleton>
       </CardBody>
     </Card>

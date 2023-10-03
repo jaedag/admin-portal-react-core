@@ -1,6 +1,7 @@
 import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
 import MemberDetailCard, { MemberDetailCardPropsType } from './MemberDetailCard'
+import { FaWhatsapp } from 'react-icons/fa'
 
 export default {
   title: 'Components/Cards/MemberDetailCard',
@@ -24,6 +25,14 @@ Default.args = {
   loading: false,
 }
 
+export const WithTrailingIcon = Template.bind({})
+WithTrailingIcon.args = {
+  heading: 'Details',
+  detail: 'This is some detail text',
+  loading: false,
+  trailingIcon: <FaWhatsapp />,
+}
+
 export const Loading = Template.bind({})
 Loading.args = {
   heading: '',
@@ -31,8 +40,8 @@ Loading.args = {
   loading: true,
 }
 
-export const OnClick = Template.bind({})
-OnClick.args = {
+export const onClick = Template.bind({})
+onClick.args = {
   heading: 'Details',
   detail: 'This is some detail text',
   loading: false,

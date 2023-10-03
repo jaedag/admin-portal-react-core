@@ -107,7 +107,7 @@ const ImageUpload = (props: ImageUploadProps) => {
         </Center>
       </Container>
 
-      <Container padding={0} marginBottom={4}>
+      <Container padding={0} marginBottom={4} centerContent>
         <Input
           id={name}
           display="none"
