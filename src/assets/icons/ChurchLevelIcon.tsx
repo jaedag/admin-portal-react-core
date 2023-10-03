@@ -13,33 +13,37 @@ import {
   StreamIcon,
 } from '.'
 import { BsPeopleFill } from 'react-icons/bs'
+import { IconBaseProps } from 'react-icons'
 
-const ChurchLevelIcon = ({ level }: { level: ChurchLevel }) => {
+const ChurchLevelIcon = ({
+  level,
+  ...rest
+}: { level: ChurchLevel } & IconBaseProps) => {
   switch (level) {
     case 'Oversight':
-      return <OversightIcon />
+      return <OversightIcon {...rest} />
     case 'Campus':
-      return <CampusIcon />
+      return <CampusIcon {...rest} />
     case 'Stream':
-      return <StreamIcon />
+      return <StreamIcon {...rest} />
     case 'Constituency':
-      return <ConstituencyIcon />
+      return <ConstituencyIcon {...rest} />
     case 'Council':
-      return <CouncilIcon />
+      return <CouncilIcon {...rest} />
     case 'Bacenta':
-      return <BacentaIcon />
+      return <BacentaIcon {...rest} />
     case 'Fellowship':
-      return <FellowshipIcon />
+      return <FellowshipIcon {...rest} />
 
     case 'CreativeArts':
-      return <CreativeArtsIcon />
+      return <CreativeArtsIcon {...rest} />
     case 'Ministry':
-      return <MinistryIcon />
+      return <MinistryIcon {...rest} />
     case 'Hub':
-      return <HubIcon />
+      return <HubIcon {...rest} />
 
     default:
-      return <BsPeopleFill />
+      return <BsPeopleFill {...rest} />
   }
 }
 
