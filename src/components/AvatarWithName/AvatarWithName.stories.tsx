@@ -8,26 +8,25 @@ export default {
   title: 'Components/AvatarWithName',
   component: AvatarWithName,
   args: {
-    leader: {
+    member: {
       name: 'John Doe',
       fullName: 'John Doe',
       pictureUrl: 'https://example.com/avatar.jpg',
       nameWithTitle: 'John Doe',
     },
-    title: 'Leader',
     onClick: action('clicked'),
   },
 } as Meta
 
 const props = {
-  leader: {
+  member: {
     firstName: 'John',
     lastName: 'Doe',
     fullName: 'John Doe',
     pictureUrl: 'https://bit.ly/dan-abramov',
     nameWithTitle: 'Rev. John Doe',
   } as Member,
-  title: 'Leader',
+  title: 'member',
   onClick: () => alert('Button clicked'),
 }
 
@@ -37,13 +36,13 @@ const Template: StoryFn<AvatarWithNamePropsType> = (
 
 export const Default = Template.bind({})
 Default.args = {
-  leader: props.leader,
+  member: props.member,
   onClick: props.onClick,
   loading: false,
 }
 
 export const Loading = Template.bind({})
 Loading.args = {
-  leader: props.leader,
+  member: props.member,
   loading: true,
 }

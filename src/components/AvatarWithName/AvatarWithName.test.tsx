@@ -5,7 +5,7 @@ import { Member } from '@jaedag/admin-portal-types'
 import '@testing-library/jest-dom'
 
 describe('MemberDetailsWithAvatar', () => {
-  const leader = {
+  const member = {
     firstName: 'John',
     lastName: 'Doe',
     fullName: 'John Doe',
@@ -13,10 +13,10 @@ describe('MemberDetailsWithAvatar', () => {
     nameWithTitle: 'Rev. John Doe',
   } as Member
 
-  it('renders the component with leader details', () => {
+  it('renders the component with member details', () => {
     render(
       <MemberDetailsWithAvatar
-        leader={leader}
+        member={member}
         loading={false}
         onClick={() => {}}
       />
@@ -25,17 +25,17 @@ describe('MemberDetailsWithAvatar', () => {
     const avatarElement = screen.getByTestId('avatar')
     expect(avatarElement).toBeInTheDocument()
 
-    const titleElement = screen.getByText('Leader')
+    const titleElement = screen.getByText('member')
     expect(titleElement).toBeInTheDocument()
 
-    const nameElement = screen.getByText(leader.nameWithTitle)
+    const nameElement = screen.getByText(member.nameWithTitle)
     expect(nameElement).toBeInTheDocument()
   })
 
   it('renders skeleton loading state when loading is true', () => {
     render(
       <MemberDetailsWithAvatar
-        leader={leader as Member}
+        member={member as Member}
         loading
         onClick={() => {}}
       />
@@ -52,7 +52,7 @@ describe('MemberDetailsWithAvatar', () => {
     const onClick = jest.fn()
     render(
       <MemberDetailsWithAvatar
-        leader={leader}
+        member={member}
         loading={false}
         onClick={onClick}
       />

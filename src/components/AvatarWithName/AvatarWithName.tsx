@@ -11,15 +11,15 @@ import { Member } from '@jaedag/admin-portal-types'
 import { getCloudinaryPreset } from '@/utils'
 
 export type AvatarWithNamePropsType = {
-  leader: Member
+  member: Member
   loading: boolean
   onClick: () => void
 }
 
 const AvatarWithName = (props: AvatarWithNamePropsType) => {
-  const { leader, onClick, loading } = props
+  const { member, onClick, loading } = props
 
-  if (loading || !leader) {
+  if (loading || !member) {
     return (
       <HStack marginTop={4}>
         <Box marginRight={3}>
@@ -40,17 +40,17 @@ const AvatarWithName = (props: AvatarWithNamePropsType) => {
     <HStack marginTop={4} onClick={onClick} data-testid="container">
       <Avatar
         data-testid="avatar"
-        src={getCloudinaryPreset(leader?.pictureUrl ?? '')}
-        name={leader.fullName}
+        src={getCloudinaryPreset(member?.pictureUrl ?? '')}
+        name={member.fullName}
         size="sm"
         marginRight={2}
       />
 
       <Box alignItems="center">
         <Text fontSize="sm" marginBottom={0}>
-          {leader?.nameWithTitle ??
-            leader.fullName ??
-            leader.firstName + ' ' + leader.lastName}
+          {member?.nameWithTitle ??
+            member.fullName ??
+            member.firstName + ' ' + member.lastName}
         </Text>
       </Box>
     </HStack>
