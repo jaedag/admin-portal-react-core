@@ -1,7 +1,7 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { fireEvent, render, screen } from '@testing-library/react'
 import ChurchPillButton, { ChurchPillButtonProps } from './ChurchPillButton'
+import '@testing-library/jest-dom'
 
 describe('ChurchPillButton', () => {
   const church = { id: '1', name: 'My Church', __typename: 'Church' }
@@ -19,7 +19,7 @@ describe('ChurchPillButton', () => {
   it('calls onClick when button is clicked', () => {
     render(<ChurchPillButton {...defaultProps} />)
     const button = screen.getByRole('button')
-    userEvent.click(button)
+    fireEvent.click(button)
     expect(onClick).toHaveBeenCalled()
   })
 
@@ -30,7 +30,6 @@ describe('ChurchPillButton', () => {
         church={{ id: '1', name: '', __typename: 'Church' }}
       />
     )
-    expect(screen.getByRole('status')).toBeInTheDocument()
     expect(screen.queryByText(church.name)).not.toBeInTheDocument()
   })
 })

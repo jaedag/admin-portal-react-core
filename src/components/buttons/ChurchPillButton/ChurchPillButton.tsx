@@ -14,11 +14,15 @@ const ChurchPillButton = (props: ChurchPillButtonProps) => {
   const { church, onClick } = props
 
   return (
-    <Skeleton borderRadius="25px" isLoaded={church?.name != null}>
-      <Button borderRadius="25px" colorScheme="gray" onClick={onClick}>
+    <Button borderRadius="25px" colorScheme="gray" onClick={onClick}>
+      <Skeleton
+        borderRadius="25px"
+        width="50px"
+        isLoaded={church?.name != null}
+      >
         {church.name}
-      </Button>
-    </Skeleton>
+      </Skeleton>
+    </Button>
   )
 }
 
