@@ -5,6 +5,7 @@ import {
   HStack,
   SkeletonCircle,
   SkeletonText,
+  StackProps,
   Text,
 } from '@chakra-ui/react'
 import { Member } from '@jaedag/admin-portal-types'
@@ -12,16 +13,16 @@ import { getCloudinaryPreset } from '@/utils'
 
 export type AvatarWithNamePropsType = {
   member: Member
-  loading: boolean
-  onClick: () => void
-}
+  loading?: boolean
+  onClick?: () => void
+} & StackProps
 
 const AvatarWithName = (props: AvatarWithNamePropsType) => {
-  const { member, onClick, loading } = props
+  const { member, onClick, loading, ...rest } = props
 
   if (loading || !member) {
     return (
-      <HStack marginTop={4}>
+      <HStack {...rest}>
         <Box marginRight={3}>
           <SkeletonCircle data-testid="skeleton-circle" size="10" />
         </Box>
@@ -37,7 +38,7 @@ const AvatarWithName = (props: AvatarWithNamePropsType) => {
   }
 
   return (
-    <HStack marginTop={4} onClick={onClick} data-testid="container">
+    <HStack onClick={onClick} data-testid="container" {...rest}>
       <Avatar
         data-testid="avatar"
         src={getCloudinaryPreset(member?.pictureUrl ?? '')}

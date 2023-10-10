@@ -15,7 +15,7 @@ export const Default = Template.bind({})
 Default.args = {
   church: {
     id: '1',
-    name: 'First Church',
+    name: 'First Church Test',
     __typename: 'Church',
   },
   onClick: () => console.log('Button clicked'),

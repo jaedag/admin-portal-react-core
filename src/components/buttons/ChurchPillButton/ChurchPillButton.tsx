@@ -13,15 +13,22 @@ export type ChurchPillButtonProps = {
 const ChurchPillButton = (props: ChurchPillButtonProps) => {
   const { church, onClick } = props
 
+  if (!church?.name) {
+    return (
+      <Button
+        borderRadius="25px"
+        width={20}
+        colorScheme="gray"
+        onClick={onClick}
+      >
+        <Skeleton borderRadius="25px" isLoaded={church?.name != null} />
+      </Button>
+    )
+  }
+
   return (
     <Button borderRadius="25px" colorScheme="gray" onClick={onClick}>
-      <Skeleton
-        borderRadius="25px"
-        width="50px"
-        isLoaded={church?.name != null}
-      >
-        {church.name}
-      </Skeleton>
+      {church.name}
     </Button>
   )
 }
