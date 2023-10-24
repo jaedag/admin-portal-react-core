@@ -18,23 +18,25 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 
+export interface GraphQLError {
+  message: string
+  locations: {
+    line: number
+    column: number
+  }[]
+  path: (string | number)[]
+  extensions: {
+    code: string
+    exception: {
+      message: string
+      stacktrace: string[]
+    }
+  }
+}
+
 export interface ApolloError {
   name: string
-  graphQLErrors: {
-    message: string
-    locations: {
-      line: number
-      column: number
-    }[]
-    path: (string | number)[]
-    extensions: {
-      code: string
-      exception: {
-        message: string
-        stacktrace: string[]
-      }
-    }
-  }[]
+  graphQLErrors: GraphQLError[]
   protocolErrors: unknown[]
   clientErrors: unknown[]
   networkError: {
@@ -69,6 +71,18 @@ interface ErrorScreenProps {
   throwToSentry: () => void
 }
 
+export const parseApolloGQLError = (errors: GraphQLError[]) => {
+  const errorArray = errors
+    .map(
+      ({ message, locations, path }) =>
+        `Message: ${message}, Location: ${JSON.stringify(
+          locations
+        )}, Path: ${JSON.stringify(path)}`
+    )
+    .join(' \n')
+
+  return errorArray
+}
 const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
   if (error) {
     throwToSentry()
