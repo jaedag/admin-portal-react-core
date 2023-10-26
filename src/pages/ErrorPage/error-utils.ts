@@ -1,43 +1,4 @@
-export interface GraphQLError {
-  message: string
-  locations: {
-    line: number
-    column: number
-  }[]
-  path: (string | number)[]
-  extensions: {
-    code: string
-    exception: {
-      message: string
-      stacktrace: string[]
-    }
-  }
-}
-
-export interface ApolloError {
-  name: string
-  graphQLErrors: GraphQLError[]
-  protocolErrors: unknown[]
-  clientErrors: unknown[]
-  networkError: {
-    name: string
-    response: unknown
-    statusCode: number
-    result: {
-      errorMessage?: string
-      errors: {
-        message: string
-        extensions: {
-          code: string
-          exception: {
-            stacktrace: string[]
-          }
-        }
-      }[]
-    }
-  } | null
-  message: string
-}
+import { ApolloError, ServerError } from '@apollo/client'
 
 export interface FirebaseError {
   code: string
@@ -46,15 +7,27 @@ export interface FirebaseError {
   stack: string
 }
 
-export const parseApolloGQLError = (errors: GraphQLError[]) => {
-  const errorArray = errors
-    .map(
+export const parseApolloError = (error: ApolloError) => {
+  const { graphQLErrors, networkError } = error
+
+  if (graphQLErrors) {
+    const errorArray = graphQLErrors.map(
       ({ message, locations, path }) =>
-        `Message: ${message}, Location: ${JSON.stringify(
+        `[GraphQL error]: Message: ${message}, Location: ${JSON.stringify(
           locations
         )}, Path: ${JSON.stringify(path)}`
     )
-    .join(' \n')
 
-  return errorArray
+    return errorArray
+  }
+
+  if (networkError) {
+    return `[Network error]: ${JSON.stringify(networkError)}`
+  }
+}
+
+export const isServerError = (
+  networkError: ServerError
+): networkError is ServerError => {
+  return !!networkError?.result
 }

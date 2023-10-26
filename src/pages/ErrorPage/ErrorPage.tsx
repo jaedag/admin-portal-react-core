@@ -17,7 +17,8 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import React from 'react'
-import { ApolloError, FirebaseError } from './error-utils'
+import { FirebaseError, isServerError, parseApolloError } from './error-utils'
+import { ApolloError, ServerError } from '@apollo/client'
 
 interface ErrorScreenProps {
   error: ApolloError | Error | undefined | FirebaseError
@@ -33,19 +34,18 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
 
   const { graphQLErrors, networkError } = error as ApolloError
 
-  if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }) =>
-      // eslint-disable-next-line no-console
-      console.error(
-        `[GraphQL error]: Message: ${message}, Location: ${JSON.stringify(
-          locations
-        )}, Path: ${JSON.stringify(path)}`
-      )
-    )
+  const parsedError = parseApolloError(error as ApolloError)
 
-  if (networkError)
+  const serverError = isServerError(networkError as ServerError)
+    ? (networkError as ServerError)
+    : null
+
+  if (Array.isArray(parsedError) && parsedError.length) {
     // eslint-disable-next-line no-console
-    console.error(`[Network error]: ${JSON.stringify(networkError)}`)
+    console.error(parsedError.join('\n'))
+  }
+  // eslint-disable-next-line no-console
+  else console.error(error)
 
   return (
     <Center height="100vh">
@@ -80,30 +80,42 @@ const ErrorPage = ({ error, throwToSentry }: ErrorScreenProps) => {
 
             {!!networkError && (
               <>
-                {networkError.result?.errors?.map((error) => (
+                {!!serverError && typeof serverError.result !== 'string' && (
                   <>
-                    <Text
-                      fontWeight="bold"
-                      color="red.400"
-                    >{`code: ${error.extensions.code}`}</Text>
-                    <Text noOfLines={3}>
-                      {`[Network error]: ${error?.message}`}
-                    </Text>
-                  </>
-                ))}
-                {!networkError.result?.errors?.length && (
-                  <>
-                    <Text
-                      fontWeight="bold"
-                      color="red.400"
-                    >{`code: ${networkError?.statusCode}`}</Text>
-                    <Text noOfLines={3}>
-                      {`[Network error]: ${networkError?.result?.errorMessage}`}
-                    </Text>
+                    {serverError.result?.errors?.map(
+                      (error: {
+                        extensions: { code: string }
+                        message: string
+                      }) => (
+                        <>
+                          <Text
+                            fontWeight="bold"
+                            color="red.400"
+                          >{`code: ${error.extensions.code}`}</Text>
+                          <Text noOfLines={3}>
+                            {`[Network error]: ${error?.message}`}
+                          </Text>
+                        </>
+                      )
+                    )}
+                    {!serverError.result?.errors?.length && (
+                      <>
+                        <Text
+                          fontWeight="bold"
+                          color="red.400"
+                        >{`code: ${serverError?.statusCode}`}</Text>
+                        <Text noOfLines={3}>
+                          {`[Network error]: ${JSON.stringify(
+                            serverError?.result
+                          )}`}
+                        </Text>
+                      </>
+                    )}
                   </>
                 )}
               </>
             )}
+
             <Modal
               isOpen={isOpen}
               onClose={onClose}

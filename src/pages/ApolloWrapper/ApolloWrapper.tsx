@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import LoadingPage from '../LoadingPage/LoadingPage'
-import ErrorPage, { ApolloError } from '../ErrorPage/ErrorPage'
+import ErrorPage from '../ErrorPage/ErrorPage'
+import { ApolloError } from '@apollo/client'
 
 type ApolloWrapperPropsType = {
   placeholder?: boolean

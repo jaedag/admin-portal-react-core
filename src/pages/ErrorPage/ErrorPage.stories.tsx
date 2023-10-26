@@ -1,13 +1,14 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import ErrorPage, { ApolloError } from './ErrorPage'
+import ErrorPage from './ErrorPage'
+import { ApolloError } from '@apollo/client'
 
 export default {
   title: 'Pages/ErrorPage',
   component: ErrorPage,
 } as Meta
 
-const mockNetworkError: ApolloError = {
+const mockNetworkError = {
   name: 'ApolloError',
   graphQLErrors: [],
   protocolErrors: [],
@@ -44,7 +45,7 @@ const mockNetworkError: ApolloError = {
   message: 'Response not successful: Received status code 400',
 }
 
-const mockGraphQLError: ApolloError = {
+const mockGraphQLError = {
   name: 'ApolloError',
   graphQLErrors: [
     {
