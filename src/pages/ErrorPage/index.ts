@@ -1,3 +1,3 @@
 export { default } from './ErrorPage'
 
-export { parseApolloGQLError } from './error-utils'
+export { parseApolloError } from './error-utils'
