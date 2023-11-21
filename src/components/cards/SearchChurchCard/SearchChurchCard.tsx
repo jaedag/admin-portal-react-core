@@ -43,8 +43,7 @@ const SearchChurchCard = (props: SearchChurchCardPropsInterface) => {
               boxSize="1.25em"
               padding={1}
             >
-              <ChurchLevelIcon level={church.__typename} />{' '}
-              {church.levelName || church.__typename}
+              <ChurchLevelIcon level={church.__typename} />
             </AvatarBadge>
           </Avatar>
           <Box>
