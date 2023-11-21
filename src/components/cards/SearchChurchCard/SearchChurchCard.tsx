@@ -43,12 +43,13 @@ const SearchChurchCard = (props: SearchChurchCardPropsInterface) => {
               boxSize="1.25em"
               padding={1}
             >
-              <ChurchLevelIcon level={church.__typename} />
+              <ChurchLevelIcon level={church.__typename} />{' '}
+              {church.levelName || church.__typename}
             </AvatarBadge>
           </Avatar>
           <Box>
             <Text marginBottom={0} fontWeight="bold" fontSize="lg">
-              {church.name + ' ' + church.levelName}
+              {`${church.name} ${church.levelName || church.__typename}`}
             </Text>
 
             {!!church.leader && (
