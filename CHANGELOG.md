@@ -1,5 +1,11 @@
 #### 2.3.6 (2024-01-04)
 
+##### Documentation Changes
+
+*  update CHANGELOG.md and version bump ([1ec9f37a](https://github.com/jaedag/admin-portal-react-core/commit/1ec9f37aa6049cffadcef5a1e0a75c144a5cf876))
+
+#### 2.3.6 (2024-01-04)
+
 #### 2.3.5 (2023-11-21)
 
 #### 2.3.4 (2023-10-26)
