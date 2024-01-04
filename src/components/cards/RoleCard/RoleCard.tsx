@@ -39,7 +39,9 @@ const RoleCard: React.FC<RoleCardProps> = ({ number, role }: RoleCardProps) => {
     case role.toLowerCase().includes('oversight'):
       color = 'linear-gradient(to bottom, #6f4a09, #533a0b, #361f0e)'
       break
-
+    case role.toLowerCase().includes('denomination'):
+      color = 'linear-gradient(to bottom, #6f4a09, #533a0b, #361f0e)'
+      break
     default:
       break
   }
